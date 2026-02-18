@@ -9,6 +9,10 @@
 
 <style>
 
+html {
+  scroll-behavior: smooth;
+}
+
 *{
     margin:0;
     padding:0;
@@ -31,7 +35,7 @@ nav{
 }
 
 .logo img{
-    height:110px;
+    height:55px;
 }
 
 nav ul{
@@ -57,12 +61,6 @@ nav ul li a:hover{
     border-radius:6px;
     color:#39c6ff;
     text-decoration:none;
-    transition:0.3s;
-}
-
-.contact-btn:hover{
-    background:#39c6ff;
-    color:#041c3a;
 }
 
 /* HERO */
@@ -81,13 +79,10 @@ nav ul li a:hover{
 
 .hero-text h4{
     color:#9fb4c9;
-    margin-bottom:12px;
-    letter-spacing:1px;
 }
 
 .hero-text h1{
     font-size:60px;
-    line-height:1.1;
     background:linear-gradient(90deg,#39c6ff,#6be3ff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -96,7 +91,6 @@ nav ul li a:hover{
 .hero-text p{
     margin:20px 0;
     color:#cfd8e3;
-    line-height:1.6;
 }
 
 .buttons{
@@ -110,7 +104,6 @@ nav ul li a:hover{
     border-radius:6px;
     text-decoration:none;
     font-weight:600;
-    transition:0.3s;
 }
 
 .primary{
@@ -118,39 +111,71 @@ nav ul li a:hover{
     color:#041c3a;
 }
 
-.primary:hover{
-    box-shadow:0 0 15px #39c6ff;
-}
-
 .secondary{
     border:1px solid #39c6ff;
     color:#39c6ff;
 }
 
-.secondary:hover{
-    background:#39c6ff;
-    color:#041c3a;
+/* SERVICES SECTION */
+
+.services{
+    text-align:center;
+    padding:100px 8%;
+    background:linear-gradient(180deg,#041c3a,#061f45);
 }
 
-/* HERO IMAGE GLOW */
+.services h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
-.hero-img img{
-    width:450px;
-    max-width:100%;
-    filter:drop-shadow(0 0 25px rgba(57,198,255,0.35));
+.services h2 span{
+    color:#39c6ff;
+}
+
+.services p{
+    color:#cfd8e3;
+    margin-bottom:60px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.service{
+    padding:30px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.service:hover{
+    background:rgba(57,198,255,0.08);
+    transform:translateY(-8px);
+}
+
+.icon{
+    font-size:40px;
+    color:#39c6ff;
+    margin-bottom:15px;
+}
+
+.service h3{
+    margin-bottom:10px;
+}
+
+.service p{
+    font-size:14px;
+    color:#cfd8e3;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
-
 .hero{
     text-align:center;
     justify-content:center;
-}
-
-.hero-img{
-    margin-top:40px;
 }
 
 nav ul{
@@ -163,17 +188,16 @@ nav ul{
 
 <body>
 
-<!-- NAVIGATION -->
-
+<!-- NAVBAR -->
 <nav>
     <div class="logo">
-        <img src="TheEntitySolutionsLogo.jpeg" alt="The Entity Solutions Logo">
+        <img src="logo.png" alt="The Entity Solutions Logo">
     </div>
 
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">What We Do</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="#services">What We Do</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">FAQ</a></li>
     </ul>
@@ -181,28 +205,57 @@ nav ul{
     <a href="#" class="contact-btn">Contact</a>
 </nav>
 
-<!-- HERO SECTION -->
-
+<!-- HERO -->
 <section class="hero">
-
     <div class="hero-text">
         <h4>WE HELP BUSINESSES</h4>
         <h1>SCALE & GROW</h1>
 
         <p>
-            Professional web design, SEO, and IT solutions to help your business
-            grow, improve visibility, and dominate the digital world.
+            Professional web design, SEO, and IT solutions to help your business grow and dominate online.
         </p>
 
         <div class="buttons">
-            <a href="#" class="btn secondary">Our Services</a>
+            <a href="#services" class="btn secondary">Explore</a>
             <a href="#" class="btn primary">Contact Us</a>
         </div>
     </div>
+</section>
 
-    <div class="hero-img">
-        <!-- Optional image -->
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="Digital Technology">
+<!-- SERVICES -->
+<section id="services" class="services">
+
+    <h2>What <span>We Do</span></h2>
+    <p>
+        Our digital solutions include website development, branding, social media management, and SEO services.
+    </p>
+
+    <div class="service-grid">
+
+        <div class="service">
+            <div class="icon">💻</div>
+            <h3>Development</h3>
+            <p>We build fast, modern, and responsive websites tailored to your business needs.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">🎨</div>
+            <h3>Design</h3>
+            <p>Creative designs that capture attention and strengthen your brand identity.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">💬</div>
+            <h3>Social Media</h3>
+            <p>We manage content, engagement, and growth across all major platforms.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">📈</div>
+            <h3>SEO</h3>
+            <p>Rank higher on Google and attract more customers with smart SEO strategies.</p>
+        </div>
+
     </div>
 
 </section>
