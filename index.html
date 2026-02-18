@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Entity Solutions</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#0b0f1a;
+    color:#fff;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#35e0ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#35e0ff;
+}
+
+.contact-btn{
+    border:1px solid #35e0ff;
+    padding:8px 18px;
+    border-radius:6px;
+    color:#35e0ff;
+}
+
+/* HERO */
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 8%;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:550px;
+}
+
+.hero-text h4{
+    color:#aaa;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:58px;
+    line-height:1.1;
+    background:linear-gradient(90deg,#35e0ff,#00ffa6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    margin:20px 0;
+    color:#ccc;
+    line-height:1.6;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.btn{
+    padding:12px 24px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.primary{
+    background:#00ffa6;
+    color:#000;
+}
+
+.secondary{
+    border:1px solid #35e0ff;
+    color:#35e0ff;
+}
+
+.hero-img img{
+    width:450px;
+    max-width:100%;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{
+    text-align:center;
+    justify-content:center;
+}
+
+.hero-img{
+    margin-top:40px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">TES</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <a href="#" class="contact-btn">Contact Us</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <h4>WE HELP BUSINESSES:</h4>
+        <h1>SCALE</h1>
+        <p>
+            Complete web design, development, SEO, security, and digital marketing solutions 
+            to grow your business and dominate online.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn secondary">Our Services</a>
+            <a href="#" class="btn primary">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="hero-img">
+        <!-- Replace with your image -->
+        <img src="https://images.unsplash.com/photo-1603575448878-868a20723f6b" alt="Hero Image">
+    </div>
+</section>
+
+</body>
+</html>
