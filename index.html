@@ -1,2 +1,340 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>The Entity Solutions</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> <style> .contact-section { background: #0b0b0f; padding: 80px 20px; color: white; } .contact-container { max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; } .contact-form { flex: 1; background: #111827; padding: 30px; border-radius: 10px; } .contact-form h2 { margin-bottom: 20px; } .form-row { display: flex; gap: 10px; } .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-top: 10px; border: none; border-radius: 6px; background: #1f2937; color: white; } .contact-form button { margin-top: 15px; padding: 12px 25px; border: none; background: #6d28d9; color: white; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; } .contact-form button:hover { background: #7c3aed; } .contact-info { flex: 1; padding: 20px; } .info-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; } .icon { font-size: 22px; color: #7c3aed; } .social-icons a { margin-right: 15px; color: #7c3aed; text-decoration: none; font-weight: 500; } .social-icons a:hover { text-decoration: underline; } /* Mobile Responsive */ @media(max-width:768px){ .form-row { flex-direction: column; } } html { scroll-behavior: smooth; } *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; } body{ background:#041c3a; color:#ffffff; } /* NAVBAR */ nav{ display:flex; justify-content:space-between; align-items:center; padding:20px 8%; } .logo img{ height:180px; } nav ul{ list-style:none; display:flex; gap:30px; } nav ul li a{ color:#cfd8e3; text-decoration:none; font-size:15px; transition:0.3s; } nav ul li a:hover{ color:#39c6ff; } .contact-btn{ border:1px solid #39c6ff; padding:8px 18px; border-radius:6px; color:#39c6ff; text-decoration:none; } /* HERO */ .hero{ display:flex; align-items:center; justify-content:space-between; padding:90px 8%; flex-wrap:wrap; } .hero-text{ max-width:550px; } .hero-text h4{ color:#9fb4c9; } .hero-text h1{ font-size:60px; background:linear-gradient(90deg,#39c6ff,#6be3ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; } .hero-text p{ margin:20px 0; color:#cfd8e3; } .buttons{ display:flex; gap:15px; margin-top:20px; } .btn{ padding:13px 26px; border-radius:6px; text-decoration:none; font-weight:600; } .primary{ background:linear-gradient(90deg,#39c6ff,#6be3ff); color:#041c3a; } .secondary{ border:1px solid #39c6ff; color:#39c6ff; } /* SERVICES SECTION */ .services{ text-align:center; padding:100px 8%; background:linear-gradient(180deg,#041c3a,#061f45); } .services h2{ font-size:42px; margin-bottom:10px; } .services h2 span{ color:#39c6ff; } .services p{ color:#cfd8e3; margin-bottom:60px; } .service-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:40px; } .service{ padding:30px; border-radius:12px; transition:0.3s; } .service:hover{ background:rgba(57,198,255,0.08); transform:translateY(-8px); } .icon{ font-size:40px; color:#39c6ff; margin-bottom:15px; } .service h3{ margin-bottom:10px; } .service p{ font-size:14px; color:#cfd8e3; } /* RESPONSIVE */ @media(max-width:900px){ .hero{ text-align:center; justify-content:center; } nav ul{ display:none; } } </style> </head> <script> function sendWhatsApp() { var name = document.getElementById("name").value; var phone = document.getElementById("phone").value; var email = document.getElementById("email").value; var message = document.getElementById("message").value; var whatsappNumber = "27719909430"; // ← replace with your WhatsApp number var text = "New Website Enquiry:%0A%0A" + "Name: " + name + "%0A" + "Phone: " + phone + "%0A" + "Email: " + email + "%0A" + "Message: " + message; var url = "https://wa.me/" + whatsappNumber + "?text=" + text; window.open(url, "_blank"); } /* NAVBAR */ .navbar { width: 100%; position: fixed; /* keeps it at top */ top: 0; left: 0; background: rgba(11, 11, 15, 0.85); backdrop-filter: blur(8px); z-index: 1000; } .nav-container { max-width: 1100px; margin: auto; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; } .nav-container nav a { margin-left: 25px; text-decoration: none; color: white; font-weight: 500; } .nav-container nav a:hover { color: #7c3aed; } /* HERO */ .hero { padding-top: 120px; /* IMPORTANT: pushes content below fixed nav */ min-height: 90vh; background: linear-gradient(135deg, #0b0b0f, #0f172a, #1e3a8a); color: white; padding-left: 20px; display: flex; flex-direction: column; justify-content: center; } .small-text { letter-spacing: 2px; color: #9ca3af; } .hero h1 { font-size: 64px; background: linear-gradient(90deg, #67e8f9, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } .hero-buttons { margin-top: 20px; } .btn-outline { padding: 12px 25px; border: 1px solid #7c3aed; color: white; margin-right: 10px; text-decoration: none; border-radius: 6px; } .btn-solid { padding: 12px 25px; background: linear-gradient(90deg, #7c3aed, #67e8f9); color: white; text-decoration: none; border-radius: 6px; } </script> <body> <!-- NAVBAR --> <nav> <div class="logo"> <img src="TheEntitySolutionsLogo.jpeg" alt="The Entity Solutions Logo"> </div> <ul> <li><a href="#">Home</a></li> <li><a href="#services">What We Do</a></li> <li><a href="#services">Services</a></li> <li><a href="#">About</a></li> <li><a href="#">Contact</a></li> </ul> </nav> <!-- HERO --> <section class="hero"> <div class="hero-text"> <h4>WE HELP BUSINESSES</h4> <h1>SCALE & GROW</h1> <p> Professional web design, SEO, and IT solutions to help your business grow and dominate online. </p> <div class="buttons"> <a href="#services" class="btn secondary">Explore</a> <a href="#contact" class="btn primary">Contact Us</a> </div> </div> </section> <!-- SERVICES --> <section id="services" class="services"> <h2>What <span>We Do</span></h2> <p> Our digital solutions include website development, branding, social media management, and SEO services. </p> <div class="service-grid"> <div class="service"> <div class="icon">💻</div> <h3>Development</h3> <p>We build fast, modern, and responsive websites tailored to your business needs.</p> </div> <div class="service"> <div class="icon">🎨</div> <h3>Design</h3> <p>Creative designs that capture attention and strengthen your brand identity.</p> </div> <div class="service"> <div class="icon">💬</div> <h3>Social Media</h3> <p>We manage content, engagement, and growth across all major platforms.</p> </div> <div class="service"> <div class="icon">📈</div> <h3>SEO</h3> <p>Rank higher on Google and attract more customers with smart SEO strategies.</p> </div> <!-- ABOUT SECTION --> <section id="about" class="about-section"> <div class="about-container"> <h1 class="about-title"> About <span>Us</span> </h1> <p> <strong>The Entity Solutions</strong> is a South African digital solutions company dedicated to helping businesses grow through modern technology and smart online strategies. </p> <p> We specialize in website design, development, digital marketing, and online business solutions that empower brands to build a strong digital presence and connect with their customers more effectively. </p> <p> Our approach focuses on creativity, reliability, and results — ensuring every solution we build improves visibility, strengthens brand identity, and supports long-term business growth. </p> </div> </section> </div> </section> <!-- CONTACT SECTION --> <section id="contact" class="contact-section"> <div class="contact-container"> <div class="contact-form"> <h2>Get In Touch</h2> <div class="form-row"> <input type="text" id="name" placeholder="Name *" required> <input type="tel" id="phone" placeholder="Phone *" required> </div> <input type="email" id="email" placeholder="Email *" required> <textarea id="message" placeholder="Your Message..." rows="5" required></textarea> <button onclick="sendWhatsApp()">Send It!</button> </div> <!-- Contact Info --> <div class="contact-info"> <div class="info-item"> <span class="icon">✉</span> <div> <h4>Email Us:</h4> <p>TheEntitySolutions@gmail.com</p> </div> </div> <div class="info-item"> <span class="icon">📞</span> <div> <h4>Call Us:</h4> <p>0717709430</p> </div> </div> <div class="info-item"> <span class="icon">📍</span> <div> <h4>Johannesburg Office</h4> <p>Sandton, South Africa</p> </div> </div> <div class="social-icons"> <a href="#">LinkedIn</a> <a href="#">Facebook</a> <a href="#">YouTube</a> </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Entity Solutions</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+html { scroll-behavior: smooth; }
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#041c3a;
+    color:#ffffff;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:20px 8%;
+}
+
+.logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.logo img{
+    height:140px;
+}
+
+.logo-text{
+    font-size:14px;
+    font-weight:600;
+    color:#39c6ff;
+    margin-top:4px;
+}
+
+/* menu */
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    color:#cfd8e3;
+    text-decoration:none;
+    font-size:15px;
+}
+
+nav ul li a:hover{
+    color:#39c6ff;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:80px 8%;
+    text-align:center;
+}
+
+.hero-text h4{
+    color:#9fb4c9;
+}
+
+.hero-text h1{
+    font-size:60px;
+    background:linear-gradient(90deg,#39c6ff,#6be3ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    margin:20px 0;
+    color:#cfd8e3;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.btn{
+    padding:13px 26px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.primary{
+    background:linear-gradient(90deg,#39c6ff,#6be3ff);
+    color:#041c3a;
+}
+
+.secondary{
+    border:1px solid #39c6ff;
+    color:#39c6ff;
+}
+
+/* SERVICES */
+
+.services{
+    text-align:center;
+    padding:80px 8%;
+    background:linear-gradient(180deg,#041c3a,#061f45);
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+    margin-top:40px;
+}
+
+.service{
+    padding:30px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.service:hover{
+    background:rgba(57,198,255,0.08);
+}
+
+.icon{
+    font-size:40px;
+    color:#39c6ff;
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact-section{
+  background:#0b0b0f;
+  padding:80px 20px;
+}
+
+.contact-container{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.contact-form{
+  flex:1;
+  background:#111827;
+  padding:30px;
+  border-radius:10px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:6px;
+  background:#1f2937;
+  color:white;
+}
+
+.contact-form button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.contact-info{
+  flex:1;
+}
+
+.info-item{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.social-icons a{
+  margin-right:15px;
+  color:#25D366;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  nav ul{display:none;}
+  .hero-text h1{font-size:42px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        <img src="TheEntitySolutionsLogo.jpeg" alt="The Entity Solutions Logo">
+        <span class="logo-text">The Entity Solutions</span>
+    </div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h4>WE HELP BUSINESSES</h4>
+        <h1>SCALE & GROW</h1>
+        <p>Professional web design, SEO, and IT solutions to grow your business online.</p>
+        <div class="buttons">
+            <a href="#services" class="btn secondary">Explore</a>
+            <a href="#contact" class="btn primary">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+    <h2>What We Do</h2>
+
+    <div class="service-grid">
+        <div class="service">
+            <div class="icon">💻</div>
+            <h3>Web Development</h3>
+        </div>
+
+        <div class="service">
+            <div class="icon">🎨</div>
+            <h3>Design & Branding</h3>
+        </div>
+
+        <div class="service">
+            <div class="icon">💬</div>
+            <h3>Social Media</h3>
+        </div>
+
+        <div class="service">
+            <div class="icon">📈</div>
+            <h3>SEO Optimization</h3>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="services">
+  <h2>About Us</h2>
+  <p><strong>The Entity Solutions</strong> helps businesses grow using modern technology and smart digital strategies.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+
+      <input type="text" id="name" placeholder="Name *">
+      <input type="tel" id="phone" placeholder="Phone *">
+      <input type="email" id="email" placeholder="Email *">
+      <textarea id="message" placeholder="Your Message"></textarea>
+
+      <button type="button" onclick="sendWhatsApp()">Send via WhatsApp</button>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-item">📧 TheEntitySolutions@gmail.com</div>
+      <div class="info-item">📞 071 770 9430</div>
+      <div class="info-item">📍 Sandton, South Africa</div>
+
+      <div class="social-icons">
+        <a href="#">LinkedIn</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function sendWhatsApp() {
+
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+
+  if(name === "" || phone === "" || email === ""){
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  var whatsappNumber = "27719909430";
+
+  var text =
+    "New Website Enquiry:\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n" +
+    "Message: " + message;
+
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
