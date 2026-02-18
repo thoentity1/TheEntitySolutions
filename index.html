@@ -277,24 +277,31 @@ nav ul{
 </style>
 </head>
 <script>
+<script>
 function sendWhatsApp() {
+
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("message").value;
 
-  var whatsappNumber = "27719909430"; // ← replace with your WhatsApp number
+  var whatsappNumber = "27719909430";
 
   var text =
-    "New Website Enquiry:%0A%0A" +
-    "Name: " + name + "%0A" +
-    "Phone: " + phone + "%0A" +
-    "Email: " + email + "%0A" +
+    "New Website Enquiry:\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n" +
     "Message: " + message;
 
-  var url = "https://wa.me/" + whatsappNumber + "?text=" + text;
+  var encodedText = encodeURIComponent(text);
+
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodedText;
 
   window.open(url, "_blank");
+}
+</script>
+
 }
   /* NAVBAR */
 .navbar {
