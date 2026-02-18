@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -16,11 +17,12 @@
 }
 
 body{
-    background:#0b0f1a;
-    color:#fff;
+    background:#041c3a;
+    color:#ffffff;
 }
 
 /* NAVBAR */
+
 nav{
     display:flex;
     justify-content:space-between;
@@ -28,10 +30,8 @@ nav{
     padding:20px 8%;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:700;
-    color:#35e0ff;
+.logo img{
+    height:55px;
 }
 
 nav ul{
@@ -41,29 +41,37 @@ nav ul{
 }
 
 nav ul li a{
-    color:#ddd;
+    color:#cfd8e3;
     text-decoration:none;
     font-size:15px;
     transition:0.3s;
 }
 
 nav ul li a:hover{
-    color:#35e0ff;
+    color:#39c6ff;
 }
 
 .contact-btn{
-    border:1px solid #35e0ff;
+    border:1px solid #39c6ff;
     padding:8px 18px;
     border-radius:6px;
-    color:#35e0ff;
+    color:#39c6ff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    background:#39c6ff;
+    color:#041c3a;
 }
 
 /* HERO */
+
 .hero{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:80px 8%;
+    padding:90px 8%;
     flex-wrap:wrap;
 }
 
@@ -72,21 +80,22 @@ nav ul li a:hover{
 }
 
 .hero-text h4{
-    color:#aaa;
-    margin-bottom:10px;
+    color:#9fb4c9;
+    margin-bottom:12px;
+    letter-spacing:1px;
 }
 
 .hero-text h1{
-    font-size:58px;
+    font-size:60px;
     line-height:1.1;
-    background:linear-gradient(90deg,#35e0ff,#00ffa6);
+    background:linear-gradient(90deg,#39c6ff,#6be3ff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero-text p{
     margin:20px 0;
-    color:#ccc;
+    color:#cfd8e3;
     line-height:1.6;
 }
 
@@ -97,29 +106,44 @@ nav ul li a:hover{
 }
 
 .btn{
-    padding:12px 24px;
+    padding:13px 26px;
     border-radius:6px;
     text-decoration:none;
     font-weight:600;
+    transition:0.3s;
 }
 
 .primary{
-    background:#00ffa6;
-    color:#000;
+    background:linear-gradient(90deg,#39c6ff,#6be3ff);
+    color:#041c3a;
+}
+
+.primary:hover{
+    box-shadow:0 0 15px #39c6ff;
 }
 
 .secondary{
-    border:1px solid #35e0ff;
-    color:#35e0ff;
+    border:1px solid #39c6ff;
+    color:#39c6ff;
 }
+
+.secondary:hover{
+    background:#39c6ff;
+    color:#041c3a;
+}
+
+/* HERO IMAGE GLOW */
 
 .hero-img img{
     width:450px;
     max-width:100%;
+    filter:drop-shadow(0 0 25px rgba(57,198,255,0.35));
 }
 
 /* RESPONSIVE */
+
 @media(max-width:900px){
+
 .hero{
     text-align:center;
     justify-content:center;
@@ -128,31 +152,46 @@ nav ul li a:hover{
 .hero-img{
     margin-top:40px;
 }
+
+nav ul{
+    display:none;
 }
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-    <div class="logo">TES</div>
+    <div class="logo">
+        <img src="logo.png" alt="The Entity Solutions Logo">
+    </div>
+
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">What We Do</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Services</a></li>
         <li><a href="#">About</a></li>
+        <li><a href="#">FAQ</a></li>
     </ul>
-    <a href="#" class="contact-btn">Contact Us</a>
+
+    <a href="#" class="contact-btn">Contact</a>
 </nav>
 
+<!-- HERO SECTION -->
+
 <section class="hero">
+
     <div class="hero-text">
-        <h4>WE HELP BUSINESSES:</h4>
-        <h1>SCALE</h1>
+        <h4>WE HELP BUSINESSES</h4>
+        <h1>SCALE & GROW</h1>
+
         <p>
-            Complete web design, development, SEO, security, and digital marketing solutions 
-            to grow your business and dominate online.
+            Professional web design, SEO, and IT solutions to help your business
+            grow, improve visibility, and dominate the digital world.
         </p>
 
         <div class="buttons">
@@ -162,9 +201,10 @@ nav ul li a:hover{
     </div>
 
     <div class="hero-img">
-        <!-- Replace with your image -->
-        <img src="https://images.unsplash.com/photo-1603575448878-868a20723f6b" alt="Hero Image">
+        <!-- Optional image -->
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="Digital Technology">
     </div>
+
 </section>
 
 </body>
