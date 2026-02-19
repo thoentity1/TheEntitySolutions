@@ -83,6 +83,49 @@ nav{
 
 .logo img{height:55px;}
 
+na…
+[21:48, 19/02/2026] MZ Touffie: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Entity Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+html{scroll-behavior:smooth;}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
+  color:#e2e8f0;
+}
+
+/* NAVBAR */
+
+nav{
+  position: sticky;
+  top:0;
+  width:100%;
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(12px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 8%;
+  z-index:999;
+}
+
+.logo img{height:55px;}
+
 nav ul{
   list-style:none;
   display:flex;
@@ -92,7 +135,6 @@ nav ul{
 nav ul li a{
   text-decoration:none;
   color:#e2e8f0;
-  font-weight:500;
 }
 
 nav ul li a:hover{color:#22d3ee;}
@@ -108,9 +150,9 @@ nav ul li a:hover{color:#22d3ee;}
   background: radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 60%);
 }
 
-.hero h4{color:#94a3b8; letter-spacing:2px;}
-.hero h1{font-size:64px; color:#67e8f9;}
-.hero p{margin-top:15px; color:#cbd5f5;}
+.hero h4{color:#94a3b8;}
+.hero h1{font-size:64px;color:#67e8f9;}
+.hero p{margin-top:15px;color:#cbd5f5;}
 
 .btn{
   padding:12px 28px;
@@ -142,12 +184,11 @@ nav ul li a:hover{color:#22d3ee;}
 
 .service img{
   width:60px;
-  margin-bottom:14px;
   filter: drop-shadow(0 0 10px #22d3ee);
 }
 
 .service h3{color:#a78bfa;}
-.service p{color:#94a3b8; max-width:650px; margin:auto;}
+.service p{color:#94a3b8;max-width:650px;margin:auto;}
 
 /* ABOUT */
 
@@ -158,8 +199,8 @@ nav ul li a:hover{color:#22d3ee;}
   backdrop-filter: blur(10px);
 }
 
-.about h2{color:#22d3ee; margin-bottom:20px;}
-.about p{color:#cbd5f5; line-height:1.7;}
+.about h2{color:#22d3ee;margin-bottom:20px;}
+.about p{color:#cbd5f5;line-height:1.7;}
 
 /* CONTACT */
 
@@ -202,13 +243,10 @@ nav ul li a:hover{color:#22d3ee;}
   color:#94a3b8;
 }
 
-.contact-info p{margin:12px 0;}
-
 footer{
   text-align:center;
   padding:25px;
   color:#64748b;
-  font-size:14px;
 }
 
 </style>
@@ -274,7 +312,7 @@ footer{
 <section class="about" id="about">
   <h2>About Us</h2>
   <p>
-    Entity Solutions is a South African digital solutions company dedicated to helping businesses grow through modern technology and strategies. We specialize in website design, development, digital marketing, and online business solutions that empower brands to strengthen their digital presence and connect with customers more effectively. Our approach focuses on creativity, reliability, and results — ensuring every solution we build improves visibility, strengthens brand identity, and supports long-term business growth.
+    Entity Solutions is a South African digital solutions company dedicated to helping businesses grow through modern technology and strategies. We specialize in website design, development, digital marketing, and online business solutions that empower brands to strengthen their digital presence and connect with customers more effectively.
   </p>
 </section>
 
@@ -283,42 +321,44 @@ footer{
 
   <div class="contact-form">
     <h2>Get In Touch</h2>
+
     <input type="text" id="name" placeholder="Name *">
     <input type="text" id="phone" placeholder="Phone *">
     <input type="email" id="email" placeholder="Email *">
     <textarea id="message" rows="4" placeholder="Your Message"></textarea>
-    <button type="button" onclick="sendToWhatsApp()">Send Message</button>
+
+    <button onclick="sendToWhatsApp()">Send Message</button>
   </div>
 
   <div class="contact-info">
     <p>📧 theentitysolutions@gmail.com</p>
     <p>📞 071 770 9430</p>
     <p>📍 Sandton, South Africa</p>
-    <p><strong>LinkedIn</strong> &nbsp; <strong>Facebook</strong> &nbsp; <strong>YouTube</strong></p>
   </div>
 
 </section>
 
 <footer>
-© 2026 The Entity Solutions • All Rights Reserved
+© 2026 The Entity Solutions
 </footer>
 
 <!-- WhatsApp Script -->
 <script>
 function sendToWhatsApp(){
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let email=document.getElementById("email").value;
-let message=document.getElementById("message").value;
+var name=document.getElementById("name").value;
+var phone=document.getElementById("phone").value;
+var email=document.getElementById("email").value;
+var message=document.getElementById("message").value;
 
-let text="Hello, I have a new enquiry:%0A%0A"
-+"Name: "+name+"%0A"
-+"Phone: "+phone+"%0A"
-+"Email: "+email+"%0A"
-+"Message: "+message;
+var text =
+"New enquiry from website:%0A%0A" +
+"Name: " + name + "%0A" +
+"Phone: " + phone + "%0A" +
+"Email: " + email + "%0A" +
+"Message: " + message;
 
-let number="27717709430"; // your WhatsApp number
+var number="27717709430"; 
 
 window.open("https://wa.me/"+number+"?text="+text,"_blank");
 }
