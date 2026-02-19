@@ -21,8 +21,8 @@ html{
 }
 
 body{
-  background: linear-gradient(180deg,#0b1220,#0e1628);
-  color:white;
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
+  color:#e2e8f0;
 }
 
 /* ========= NAVBAR ========= */
@@ -31,12 +31,12 @@ nav{
   position: sticky;
   top:0;
   width:100%;
-  background: rgba(10,15,30,0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(12px);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 8%;
+  padding:16px 8%;
   z-index:999;
 }
 
@@ -47,46 +47,45 @@ nav{
 nav ul{
   list-style:none;
   display:flex;
-  gap:30px;
+  gap:28px;
 }
 
 nav ul li a{
   text-decoration:none;
-  color:white;
+  color:#e2e8f0;
   font-weight:500;
   transition:.3s;
 }
 
 nav ul li a:hover{
-  color:#39d2ff;
+  color:#22d3ee;
 }
 
 /* ========= HERO ========= */
 
 .hero{
-  height:90vh;
+  height:92vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   padding:20px;
-  background: radial-gradient(circle at center, rgba(57,210,255,0.15), transparent 60%);
+  background: radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 60%);
 }
 
 .hero h4{
   letter-spacing:2px;
-  color:#9fb4d9;
-  margin-bottom:10px;
+  color:#94a3b8;
 }
 
 .hero h1{
   font-size:64px;
-  color:#63f5d2;
+  color:#67e8f9;
 }
 
 .hero p{
   margin-top:15px;
-  color:#bfc7d5;
+  color:#cbd5f5;
   font-size:18px;
 }
 
@@ -104,39 +103,43 @@ nav ul li a:hover{
 }
 
 .btn-outline{
-  border:1px solid #63f5d2;
-  color:#63f5d2;
+  border:1px solid #22d3ee;
+  color:#22d3ee;
 }
 
 .btn-fill{
-  background:#63f5d2;
-  color:#07121f;
+  background:#22d3ee;
+  color:#02131f;
+}
+
+.btn-fill:hover{
+  box-shadow:0 0 15px #22d3ee;
 }
 
 /* ========= SERVICES ========= */
 
 .services{
   text-align:center;
-  padding:70px 10%;
+  padding:80px 10%;
 }
 
 .service{
-  margin-bottom:55px;
+  margin-bottom:60px;
 }
 
 .service img{
   width:60px;
-  margin-bottom:12px;
-  filter: drop-shadow(0 0 8px rgba(57,210,255,0.6));
+  margin-bottom:14px;
+  filter: drop-shadow(0 0 10px #22d3ee);
 }
 
 .service h3{
-  color:#b39dff;
+  color:#a78bfa;
   margin-bottom:8px;
 }
 
 .service p{
-  color:#aab3c5;
+  color:#94a3b8;
   max-width:650px;
   margin:auto;
 }
@@ -145,16 +148,18 @@ nav ul li a:hover{
 
 .about{
   text-align:center;
-  padding:80px 12%;
-  background: linear-gradient(180deg,#0e1628,#13213d);
+  padding:90px 12%;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
 }
 
 .about h2{
+  color:#22d3ee;
   margin-bottom:20px;
 }
 
 .about p{
-  color:#c7d0e0;
+  color:#cbd5f5;
   line-height:1.7;
 }
 
@@ -165,7 +170,6 @@ nav ul li a:hover{
   flex-wrap:wrap;
   gap:40px;
   padding:70px 10%;
-  background:#0b1220;
 }
 
 .contact-form{
@@ -179,17 +183,18 @@ nav ul li a:hover{
   padding:14px;
   margin-bottom:15px;
   border:none;
-  border-radius:6px;
-  background:#13213d;
-  color:white;
+  border-radius:8px;
+  background:#020617;
+  color:#e2e8f0;
+  border:1px solid rgba(34,211,238,0.2);
 }
 
 .contact-form button{
   padding:14px;
   border:none;
-  border-radius:6px;
-  background:#63f5d2;
-  color:#07121f;
+  border-radius:8px;
+  background:#22d3ee;
+  color:#02131f;
   font-weight:600;
   cursor:pointer;
 }
@@ -197,7 +202,7 @@ nav ul li a:hover{
 .contact-info{
   flex:1;
   min-width:280px;
-  color:#c7d0e0;
+  color:#94a3b8;
 }
 
 .contact-info p{
@@ -209,7 +214,7 @@ nav ul li a:hover{
 footer{
   text-align:center;
   padding:25px;
-  color:#7f8aa3;
+  color:#64748b;
   font-size:14px;
 }
 
@@ -226,6 +231,7 @@ footer{
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#services">What We Do</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -278,7 +284,7 @@ footer{
 <section class="about" id="about">
   <h2>About Us</h2>
   <p>
-    Entity Solutions is a South African digital solutions company dedicated to helping businesses grow through modern technology and strategies. We specialize in website design, development, digital marketing, and online business solutions that empower brands to strengthen their digital presence and connect with customers more effectively. Our approach focuses on creativity, reliability, and results — ensuring every solution we build improves visibility, strengthens brand identity, and supports long-term business growth.
+    Entity Solutions is a South African digital solutions company dedicated to helping businesses grow through modern technology and strategies. We specialize in website design, development, digital marketing, and online business solutions that empower brands to strengthen their digital presence and connect with their customers more effectively. Our approach focuses on creativity, reliability, and results — ensuring every solution we build improves visibility, strengthens brand identity, and supports long-term business growth.
   </p>
 </section>
 
@@ -298,11 +304,7 @@ footer{
     <p>📧 theentitysolutions@gmail.com</p>
     <p>📞 071 770 9430</p>
     <p>📍 Sandton, South Africa</p>
-    <p>
-      <strong>LinkedIn</strong> &nbsp; 
-      <strong>Facebook</strong> &nbsp; 
-      <strong>YouTube</strong>
-    </p>
+    <p><strong>LinkedIn</strong> &nbsp; <strong>Facebook</strong> &nbsp; <strong>YouTube</strong></p>
   </div>
 
 </section>
