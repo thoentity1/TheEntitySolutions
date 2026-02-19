@@ -256,25 +256,29 @@ footer{
 © 2026 The Entity Solutions
 </footer>
 
-<!-- WhatsApp Script -->
 <script>
-function sendToWhatsApp(){
+function sendWhatsApp() {
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
 
-var name=document.getElementById("name").value;
-var phone=document.getElementById("phone").value;
-var email=document.getElementById("email").value;
-var message=document.getElementById("message").value;
+  if(name === "" || phone === "" || email === ""){
+    alert("Please fill in all required fields.");
+    return;
+  }
 
-var text =
-"New enquiry from website:%0A%0A" +
-"Name: " + name + "%0A" +
-"Phone: " + phone + "%0A" +
-"Email: " + email + "%0A" +
-"Message: " + message;
+  var whatsappNumber = "27719909430";
 
-var number="27717709430"; 
+  var text =
+    "New Website Enquiry:\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n" +
+    "Message: " + message;
 
-window.open("https://wa.me/"+number+"?text="+text,"_blank");
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
 }
 </script>
 
