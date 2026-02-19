@@ -269,18 +269,22 @@ footer{
 
 <script>
 function sendWhatsApp() {
+
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("message").value;
 
+  // Validate required fields
   if(name === "" || phone === "" || email === ""){
     alert("Please fill in all required fields.");
     return;
   }
 
-  var whatsappNumber = "27719909430";
+  // Your WhatsApp number (South Africa format)
+  var whatsappNumber = "270719909430";
 
+  // Message content
   var text =
     "New Website Enquiry:\n\n" +
     "Name: " + name + "\n" +
@@ -288,8 +292,13 @@ function sendWhatsApp() {
     "Email: " + email + "\n" +
     "Message: " + message;
 
+  // Create WhatsApp link
   var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
+
+  // Open WhatsApp
   window.open(url, "_blank");
+}
+</script>
 }
 </script>
 
