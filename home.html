@@ -241,7 +241,7 @@ footer{
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact">
 
   <div class="contact-form">
     <h2>Get In Touch</h2>
@@ -249,7 +249,7 @@ footer{
     <input type="text" id="name" placeholder="Name *">
     <input type="text" id="phone" placeholder="Phone *">
     <input type="email" id="email" placeholder="Email *">
-    <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+    <textarea id="message" rows="6" placeholder="Your Message"></textarea>
 
     <button onclick="sendWhatsApp()">Send Message</button>
   </div>
@@ -301,6 +301,19 @@ function sendWhatsApp() {
 }
 </script>
 
+<script>
+function selectPlan(planName) {
 
+  // Scroll to contact section
+  document.querySelector("#contact").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  // Auto-fill message field
+  const messageBox = document.getElementById("message");
+  messageBox.value = "Hi, I'm interested in the " + planName + ". Please contact me.";
+
+}
+</script>
 </body>
 </html>
