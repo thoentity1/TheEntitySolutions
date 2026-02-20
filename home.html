@@ -302,18 +302,25 @@ function sendWhatsApp() {
 </script>
 
 <script>
-function selectPlan(planName) {
+window.onload = function () {
 
-  // Scroll to contact section
-  document.querySelector("#contact").scrollIntoView({
-    behavior: "smooth"
-  });
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
 
-  // Auto-fill message field
-  const messageBox = document.getElementById("message");
-  messageBox.value = "Hi, I'm interested in the " + planName + ". Please contact me.";
+  if(plan){
+    
+    // scroll to contact section
+    document.getElementById("contact").scrollIntoView({
+      behavior: "smooth"
+    });
 
-}
+    // autofill message
+    document.getElementById("message").value =
+      "Hi, I'm interested in the " + plan + " plan. Please contact me.";
+
+  }
+
+};
 </script>
 </body>
 </html>
