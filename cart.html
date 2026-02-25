@@ -239,6 +239,32 @@ function updateCartCount(){
 loadCart();
 updateCartCount();
 </script>
+<script>
+function goToContact() {
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if(cart.length === 0){
+    alert("Your cart is empty");
+    return;
+  }
+
+  let orderText = "🛒 Order Details:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    orderText += item.name + " - R" + item.price + "\n";
+    total += item.price;
+  });
+
+  orderText += "\nTotal: R" + total;
+
+  // Save order
+  localStorage.setItem("orderMessage", orderText);
+
+  // redirect to contact section on homepage
+  window.location.href = "home.html#contact";
+}
+</script>
 </body>
 </html>
