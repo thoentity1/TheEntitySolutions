@@ -343,28 +343,7 @@ window.onload = function () {
   }
 };
   <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  // Fill selected plan
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-
-  if(plan){
-    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-    document.getElementById("customerMessage").value =
-      "Hi, I'm interested in the " + plan + " plan.";
-  }
-
-  // Fill order details from cart
-  const order = localStorage.getItem("orderMessage");
-
-  if(order && document.getElementById("orderDetails")){
-    document.getElementById("orderDetails").value = order;
-    localStorage.removeItem("orderMessage");
-  }
-
-});
-</script>
+<script> document.addEventListener("DOMContentLoaded", function(){ const orderMessage = localStorage.getItem("orderMessage"); if(orderMessage){ const messageBox = document.getElementById("message"); if(messageBox){ messageBox.value = orderMessage; } // clear saved order after filling localStorage.removeItem("orderMessage"); } }); </script>
 
 
 </body>
