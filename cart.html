@@ -1,210 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopping Cart | The Entity Solutions</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
-    min-height:100vh;
-    padding:40px;
-}
-
-h1{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:36px;
-}
-
-.cart-container{
-    max-width:1000px;
-    margin:auto;
-    background:rgba(255,255,255,0.05);
-    padding:30px;
-    border-radius:20px;
-    backdrop-filter: blur(10px);
-}
-
-.cart-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.cart-item:last-child{
-    border-bottom:none;
-}
-
-.item-info{
-    display:flex;
-    flex-direction:column;
-}
-
-.item-name{
-    font-weight:600;
-    font-size:18px;
-}
-
-.item-price{
-    color:#00e0ff;
-    font-weight:600;
-}
-
-.remove-btn{
-    background:#ff4d4d;
-    border:none;
-    padding:8px 15px;
-    border-radius:8px;
-    color:white;
-    cursor:pointer;
-}
-
-.remove-btn:hover{
-    opacity:0.8;
-}
-
-.total{
-    text-align:right;
-    margin-top:20px;
-    font-size:22px;
-    font-weight:600;
-}
-
-.cart-actions{
-    margin-top:30px;
-    display:flex;
-    justify-content:space-between;
-}
-
-.btn{
-    padding:12px 20px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:600;
-    text-decoration:none;
-    display:inline-block;
-}
-
-.clear-btn{
-    background:#ff4d4d;
-    color:white;
-}
-
-.checkout-btn{
-    background:#00e0ff;
-    color:#00303f;
-}
-
-.checkout-btn:hover{
-    opacity:0.9;
-}
-
-.empty{
-    text-align:center;
-    font-size:18px;
-    opacity:0.7;
-}
-</style>
-</head>
-<head>
-  <meta charset="UTF-8">
-  <title>Cart</title>
-
-  <style>
-    /* NAVBAR STYLE */
-    .navbar {
-      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-      padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .nav-inner {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #5ee7df;
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .nav-menu {
-      list-style: none;
-    }
-
-    .nav-menu li {
-      display: inline-block;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.active {
-      color: #5ee7df;
-    }
-  </style>
-</head>
-<body>
-    <!-- NAVBAR -->
-<header class="navbar">
-  <div class="nav-inner">
-    <div class="logo">The Entity Solutions</div>
-
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="catalogue.html" class="active">Catalogue</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<h1>Your Shopping Cart</h1>
-
-<div class="cart-container" id="cartContainer">
-    <!-- Items will load here -->
-</div>
-
-<script>
 <script>
 function goToContact() {
-
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
     alert("Your cart is empty");
     return;
   }
 
   let orderText = "🛒 Order Details:%0A%0A";
-
   let total = 0;
 
   cart.forEach(item => {
@@ -217,63 +20,59 @@ function goToContact() {
   // save order for contact page
   localStorage.setItem("orderMessage", orderText);
 
-  // redirect to contact page
+  // redirect
   window.location.href = "contact.html";
 }
-</script>
-function loadCart(){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let container = document.getElementById("cartContainer");
-    container.innerHTML = "";
 
-    if(cart.length === 0){
-        container.innerHTML = "<p class='empty'>Your cart is empty.</p>";
-        return;
-    }
+function loadCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let container = document.getElementById("cartContainer");
+  container.innerHTML = "";
 
-    let total = 0;
+  if (cart.length === 0) {
+    container.innerHTML = "<p class='empty'>Your cart is empty.</p>";
+    return;
+  }
 
-    cart.forEach((item, index) => {
-        total += item.price;
+  let total = 0;
 
-        container.innerHTML += `
-            <div class="cart-item">
-                <div class="item-info">
-                    <span class="item-name">${item.name}</span>
-                    <span class="item-price">R${item.price.toLocaleString()}</span>
-                </div>
-                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-            </div>
-        `;
-    });
+  cart.forEach((item, index) => {
+    total += item.price;
 
     container.innerHTML += `
-        <div class="total">
-            Total: R${total.toLocaleString()}
+      <div class="cart-item">
+        <div class="item-info">
+          <span class="item-name">${item.name}</span>
+          <span class="item-price">R${item.price.toLocaleString()}</span>
         </div>
-
-        <div class="cart-actions">
-            <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
-            <button onclick="goToContact()">Proceed to Checkout</button>
-        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+      </div>
     `;
+  });
+
+  container.innerHTML += `
+    <div class="total">
+      Total: R${total.toLocaleString()}
+    </div>
+
+    <div class="cart-actions">
+      <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
+      <button class="btn checkout-btn" onclick="goToContact()">Proceed to Checkout</button>
+    </div>
+  `;
 }
 
-function removeItem(index){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(index,1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    loadCart();
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
 }
 
-function clearCart(){
-    localStorage.removeItem("cart");
-    loadCart();
+function clearCart() {
+  localStorage.removeItem("cart");
+  loadCart();
 }
 
 loadCart();
-
 </script>
-
-</body>
-</html>
