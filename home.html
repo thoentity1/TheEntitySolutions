@@ -342,5 +342,24 @@ window.onload = function () {
   }
 };
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const orderMessage = localStorage.getItem("orderMessage");
+
+  if(orderMessage){
+    const messageBox = document.getElementById("message");
+
+    if(messageBox){
+      messageBox.value = orderMessage;
+    }
+
+    // clear saved order after filling
+    localStorage.removeItem("orderMessage");
+  }
+
+});
+</script>
+
 </body>
 </html>
