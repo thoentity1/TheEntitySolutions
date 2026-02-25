@@ -193,7 +193,34 @@ h1{
 </div>
 
 <script>
+<script>
+function goToContact() {
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if(cart.length === 0){
+    alert("Your cart is empty");
+    return;
+  }
+
+  let orderText = "🛒 Order Details:%0A%0A";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    orderText += item.name + " - R" + item.price + "%0A";
+    total += item.price;
+  });
+
+  orderText += "%0A💰 Total: R" + total;
+
+  // save order for contact page
+  localStorage.setItem("orderMessage", orderText);
+
+  // redirect to contact page
+  window.location.href = "contact.html";
+}
+</script>
 function loadCart(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let container = document.getElementById("cartContainer");
@@ -227,7 +254,7 @@ function loadCart(){
 
         <div class="cart-actions">
             <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
-            <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+            <button onclick="goToContact()">Proceed to Checkout</button>
         </div>
     `;
 }
