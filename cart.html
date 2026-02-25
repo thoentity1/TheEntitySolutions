@@ -1,6 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+
+  <style>
+    /* NAVBAR STYLE */
+    .navbar {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #5ee7df;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .nav-menu {
+      list-style: none;
+    }
+
+    .nav-menu li {
+      display: inline-block;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #5ee7df;
+    }
+  </style>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shopping Cart | The Entity Solutions</title>
