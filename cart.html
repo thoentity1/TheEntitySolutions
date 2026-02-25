@@ -1,57 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-  <meta charset="UTF-8">
-  <title>Cart</title>
-
-  <style>
-    /* NAVBAR STYLE */
-    .navbar {
-      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-      padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .nav-inner {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #5ee7df;
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .nav-menu {
-      list-style: none;
-    }
-
-    .nav-menu li {
-      display: inline-block;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.active {
-      color: #5ee7df;
-    }
-  </style>
-</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shopping Cart | The Entity Solutions</title>
@@ -66,17 +15,59 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* NAVBAR */
+.navbar {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #5ee7df;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-menu li {
+  display: inline-block;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #5ee7df;
+}
+
 body{
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
     color:white;
     min-height:100vh;
-    padding:40px;
 }
 
 h1{
     text-align:center;
-    margin-bottom:40px;
-    font-size:36px;
+    margin:40px 0;
 }
 
 .cart-container{
@@ -96,18 +87,8 @@ h1{
     border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-.cart-item:last-child{
-    border-bottom:none;
-}
-
-.item-info{
-    display:flex;
-    flex-direction:column;
-}
-
 .item-name{
     font-weight:600;
-    font-size:18px;
 }
 
 .item-price{
@@ -122,10 +103,6 @@ h1{
     border-radius:8px;
     color:white;
     cursor:pointer;
-}
-
-.remove-btn:hover{
-    opacity:0.8;
 }
 
 .total{
@@ -147,27 +124,13 @@ h1{
     border-radius:10px;
     cursor:pointer;
     font-weight:600;
-    text-decoration:none;
-    display:inline-block;
 }
 
-.clear-btn{
-    background:#ff4d4d;
-    color:white;
-}
-
-.checkout-btn{
-    background:#00e0ff;
-    color:#00303f;
-}
-
-.checkout-btn:hover{
-    opacity:0.9;
-}
+.clear-btn{ background:#ff4d4d; color:white; }
+.checkout-btn{ background:#00e0ff; color:#00303f; }
 
 .empty{
     text-align:center;
-    font-size:18px;
     opacity:0.7;
 }
 </style>
@@ -175,14 +138,27 @@ h1{
 
 <body>
 
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="logo">The Entity Solutions</div>
+    <nav>
+      <ul class="nav-menu">
+        <li>
+          <a href="cart.html" class="active">
+            🛒 Cart (<span id="cart-count">0</span>)
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <h1>Your Shopping Cart</h1>
 
-<div class="cart-container" id="cartContainer">
-    <!-- Items will load here -->
-</div>
+<div class="cart-container" id="cartContainer"></div>
 
 <script>
-
 function loadCart(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let container = document.getElementById("cartContainer");
@@ -200,9 +176,9 @@ function loadCart(){
 
         container.innerHTML += `
             <div class="cart-item">
-                <div class="item-info">
-                    <span class="item-name">${item.name}</span>
-                    <span class="item-price">R${item.price.toLocaleString()}</span>
+                <div>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">R${item.price.toLocaleString()}</div>
                 </div>
                 <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
             </div>
@@ -210,13 +186,11 @@ function loadCart(){
     });
 
     container.innerHTML += `
-        <div class="total">
-            Total: R${total.toLocaleString()}
-        </div>
+        <div class="total">Total: R${total.toLocaleString()}</div>
 
         <div class="cart-actions">
             <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
-           <button onclick="goToContact()">Proceed to Checkout</button>
+            <button class="btn checkout-btn" onclick="goToContact()">Proceed to Checkout</button>
         </div>
     `;
 }
@@ -226,19 +200,16 @@ function removeItem(index){
     cart.splice(index,1);
     localStorage.setItem("cart", JSON.stringify(cart));
     loadCart();
+    updateCartCount();
 }
 
 function clearCart(){
     localStorage.removeItem("cart");
     loadCart();
+    updateCartCount();
 }
 
-loadCart();
-
-</script>
-<script>
-function goToContact() {
-
+function goToContact(){
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if(cart.length === 0){
@@ -247,7 +218,6 @@ function goToContact() {
   }
 
   let orderText = "🛒 Order Details:%0A%0A";
-
   let total = 0;
 
   cart.forEach(item => {
@@ -257,12 +227,18 @@ function goToContact() {
 
   orderText += "%0A💰 Total: R" + total;
 
-  // save order for contact page
   localStorage.setItem("orderMessage", orderText);
-
-  // redirect to contact page
   window.location.href = "contact.html";
 }
+
+function updateCartCount(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+}
+
+loadCart();
+updateCartCount();
 </script>
+
 </body>
 </html>
