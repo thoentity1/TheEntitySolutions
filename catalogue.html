@@ -163,7 +163,7 @@ nav a{
     <div class="card-content">
       <h3>Dell Latitude 5420</h3>
       <div class="price">R8,999</div>
-      <button>Add to Cart</button>
+      <button onclick="addToCart('Dell Latitude 5420', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -173,7 +173,7 @@ nav a{
     <div class="card-content">
       <h3>HP ProBook 450</h3>
       <div class="price">R7,850</div>
-      <button>Add to Cart</button>
+      <<button onclick="addToCart('HP Probook 450', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -183,7 +183,7 @@ nav a{
     <div class="card-content">
       <h3>Lenovo ThinkCentre</h3>
       <div class="price">R6,499</div>
-      <button>Add to Cart</button>
+      <button onclick="addToCart('Lenovo ThinkCentre', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -193,7 +193,7 @@ nav a{
     <div class="card-content">
       <h3>24" Full HD Monitor</h3>
       <div class="price">R2,199</div>
-      <button>Add to Cart</button>
+      <button onclick="addToCart('24" Full HD Monitor', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -203,7 +203,7 @@ nav a{
     <div class="card-content">
       <h3>Wireless Keyboard & Mouse</h3>
       <div class="price">R499</div>
-      <button>Add to Cart</button>
+      <button onclick="addToCart('Wireless Keyboard & Mouse', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -213,7 +213,7 @@ nav a{
     <div class="card-content">
       <h3>External Hard Drive 1TB</h3>
       <div class="price">R1,099</div>
-      <button>Add to Cart</button>
+      <button onclick="addToCart('External Hardrive', 8999)">Add to Cart</button>
     </div>
   </div>
 
@@ -229,6 +229,14 @@ function filterItems(category){
       item.style.display = item.classList.contains(category) ? 'block' : 'none';
     }
   });
+}
+</script>
+  <script>
+function addToCart(name, price){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
 }
 </script>
 
