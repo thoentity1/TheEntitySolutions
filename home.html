@@ -333,6 +333,14 @@ window.onload = function() {
     document.getElementById("message").value = decodeURIComponent(order);
   }
 }
+  <script>
+window.onload = function () {
+  const order = localStorage.getItem("orderMessage");
+
+  if (order && document.getElementById("message")) {
+    document.getElementById("message").value = order;
+  }
+};
 </script>
 </body>
 </html>
