@@ -321,5 +321,13 @@ window.onload = function () {
 
 };
 </script>
+  <script>
+window.onload = function() {
+  let order = localStorage.getItem("orderMessage");
+  if(order){
+    document.getElementById("message").value = decodeURIComponent(order);
+  }
+}
+</script>
 </body>
 </html>
