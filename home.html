@@ -342,25 +342,30 @@ window.onload = function () {
     document.getElementById("message").value = order;
   }
 };
-</script>
   <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-  const orderMessage = localStorage.getItem("orderMessage");
+  // Fill selected plan
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
 
-  if(orderMessage){
-    const messageBox = document.getElementById("message");
+  if(plan){
+    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+    document.getElementById("customerMessage").value =
+      "Hi, I'm interested in the " + plan + " plan.";
+  }
 
-    if(messageBox){
-      messageBox.value = orderMessage;
-    }
+  // Fill order details from cart
+  const order = localStorage.getItem("orderMessage");
 
-    // clear saved order after filling
+  if(order && document.getElementById("orderDetails")){
+    document.getElementById("orderDetails").value = order;
     localStorage.removeItem("orderMessage");
   }
 
 });
 </script>
+
 
 </body>
 </html>
