@@ -326,23 +326,30 @@ window.onload = function () {
 
 };
 </script>
-  <script>
-window.onload = function() {
-  let order = localStorage.getItem("orderMessage");
-  if(order){
-    document.getElementById("message").value = decodeURIComponent(order);
+ <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  // Autofill selected plan
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
+
+  if(plan){
+    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+    document.getElementById("customerMessage").value =
+      "Hi, I'm interested in the " + plan + " plan.";
   }
-}
-  <script>
-window.onload = function () {
+
+  // Autofill cart order
   const order = localStorage.getItem("orderMessage");
 
-  if (order && document.getElementById("message")) {
-    document.getElementById("message").value = order;
+  if(order && document.getElementById("orderDetails")){
+    document.getElementById("orderDetails").value = order;
+    localStorage.removeItem("orderMessage");
   }
-};
-  <script>
-<script> document.addEventListener("DOMContentLoaded", function(){ const orderMessage = localStorage.getItem("orderMessage"); if(orderMessage){ const messageBox = document.getElementById("message"); if(messageBox){ messageBox.value = orderMessage; } // clear saved order after filling localStorage.removeItem("orderMessage"); } }); </script>
+
+});
+</script>
+
 
 
 </body>
