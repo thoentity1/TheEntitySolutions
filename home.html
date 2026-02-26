@@ -303,6 +303,13 @@ function sendWhatsApp() {
 
   window.open(url, "_blank");
 }
+  // ✅ CLEAR FORM AFTER SENDING
+  document.getElementById("contactForm").reset();
+
+  // clear cart & order box
+  localStorage.removeItem("cart");
+  document.getElementById("customerMessage").value = "";
+}
 </script>
 }
 <script>
