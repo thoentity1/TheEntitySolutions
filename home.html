@@ -279,13 +279,32 @@ function sendWhatsApp() {
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
-  var message = document.getElementById("message").value;
+  var message = document.getElementById("customerMessage").value;
+  var order = document.getElementById("orderDetails").value;
+  var delivery = document.getElementById("delivery").value;
 
-  // Validate required fields
   if(name === "" || phone === "" || email === ""){
     alert("Please fill in all required fields.");
     return;
   }
+
+  var whatsappNumber = "27717709430";
+
+  var text =
+    "New Website Enquiry:\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n\n" +
+    "Order Details:\n" + order + "\n\n" +
+    "Delivery Address:\n" + delivery + "\n\n" +
+    "Message:\n" + message;
+
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+</script>
+
 
   // Your WhatsApp number (South Africa format)
   var whatsappNumber = "27719909430";
