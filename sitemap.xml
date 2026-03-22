@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
    <url>
       <loc>https://thoentity1.github.io/TheEntitySolutions/</loc>
    </url>
+
+   <url>
+      <loc>https://thoentity1.github.io/TheEntitySolutions/catalogue.html</loc>
+   </url>
+
+   <url>
+      <loc>https://thoentity1.github.io/TheEntitySolutions/cart.html</loc>
+   </url>
+
+   <url>
+      <loc>https://thoentity1.github.io/TheEntitySolutions/design-branding.html</loc>
+   </url>
+
 </urlset>
