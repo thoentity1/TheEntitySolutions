@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIPC Registration | The Entity Solutions</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
+  color:white;
+}
+
+/* NAVBAR */
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top:0;
+}
+
+nav h2{
+  color:#38bdf8;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+
+.hero h1{
+  font-size:42px;
+}
+
+.hero p{
+  color:#cbd5e1;
+  max-width:700px;
+  margin:auto;
+}
+
+/* CONTENT CARD */
+
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:40px;
+  background: rgba(255,255,255,0.05);
+  border-radius:20px;
+  backdrop-filter: blur(12px);
+  box-shadow:0 0 25px rgba(56,189,248,0.15);
+}
+
+.container h3{
+  color:#38bdf8;
+}
+
+.container p{
+  color:#e2e8f0;
+  line-height:1.8;
+}
+
+/* PRICE TAG */
+
+.price{
+  font-size:32px;
+  font-weight:700;
+  color:#22d3ee;
+  margin:20px 0;
+}
+
+/* CTA BUTTON */
+
+.cta{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 30px;
+  border-radius:30px;
+  background:#38bdf8;
+  color:#020617;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.cta:hover{
+  background:#0ea5e9;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#94a3b8;
+  margin-top:60px;
+}
+
+</style>
+
+<script>
+// Disable right click
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener("keydown", function(e){
+  if (
+    e.keyCode == 123 ||
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+    (e.ctrlKey && e.keyCode == 85) ||
+    (e.ctrlKey && e.shiftKey && e.keyCode == 74)
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+
+</head>
+<body>
+
+<nav>
+  <h2>The Entity Solutions</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">What we do</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>CIPC Registration</h1>
+  <p>Start your business the right way with fast and affordable company registration services.</p>
+</section>
+
+<div class="container">
+
+  <h3>Affordable Company Registration</h3>
+  <p>
+  We help you register your business with ease, ensuring all documents are correctly submitted to CIPC.
+  </p>
+
+  <div class="price">Only ZAR 500</div>
+
+  <h3>What’s Included</h3>
+  <p>
+  ✔ Company Name Reservation<br>
+  ✔ Pty Ltd Registration<br>
+  ✔ CIPC Documentation Handling<br>
+  ✔ Quick Turnaround Time<br>
+  ✔ Professional Support
+  </p>
+
+  <h3>Why Choose Us?</h3>
+  <p>
+  We make business registration simple, fast, and stress-free so you can focus on growing your business.
+  </p>
+
+  <a href="pricing.html" class="cta">Get Started</a>
+
+</div>
+
+<footer>
+  © 2026 The Entity Solutions
+</footer>
+
+</body>
+</html>
