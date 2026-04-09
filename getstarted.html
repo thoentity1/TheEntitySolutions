@@ -128,7 +128,7 @@ footer{
 
 <div class="container">
 
-  <form action="#" method="POST">
+  <form>
 
     <input type="text" name="full_name" placeholder="Full Name" required>
 
@@ -144,7 +144,7 @@ footer{
 
     <textarea name="address" rows="3" placeholder="Residential Address" required></textarea>
 
-    <button type="submit">Submit Registration</button>
+    <button type="button" onclick="sendToWhatsApp()">Submit Registration</button>
 
   </form>
 
@@ -153,6 +153,37 @@ footer{
 <footer>
   © 2026 The Entity Solutions
 </footer>
+
+<!-- WhatsApp Script -->
+<script>
+function sendToWhatsApp() {
+  let name = document.querySelector('input[name="full_name"]').value;
+  let email = document.querySelector('input[name="email"]').value;
+  let phone = document.querySelector('input[name="phone"]').value;
+  let company = document.querySelector('input[name="company_name"]').value;
+  let name2 = document.querySelector('input[name="second_name"]').value;
+  let name3 = document.querySelector('input[name="third_name"]').value;
+  let address = document.querySelector('textarea[name="address"]').value;
+
+  if(!name || !email || !phone || !company || !address){
+    alert("Please fill in all required fields");
+    return;
+  }
+
+  let message = `*CIPC Registration Request*%0A
+👤 Name: ${name}%0A
+📧 Email: ${email}%0A
+📱 Phone: ${phone}%0A
+🏢 Company Name: ${company}%0A
+🔁 Second Option: ${name2}%0A
+🔁 Third Option: ${name3}%0A
+📍 Address: ${address}`;
+
+  let url = "https://wa.me/27719909430?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
