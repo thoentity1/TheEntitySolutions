@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started | CIPC Registration</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
+  color:white;
+}
+
+/* NAV */
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+}
+
+nav h2{
+  color:#38bdf8;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:70px 20px 30px;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+.hero p{
+  color:#cbd5e1;
+}
+
+/* FORM CONTAINER */
+
+.container{
+  max-width:800px;
+  margin:40px auto;
+  padding:40px;
+  background: rgba(255,255,255,0.05);
+  border-radius:20px;
+  backdrop-filter: blur(12px);
+  box-shadow:0 0 25px rgba(56,189,248,0.15);
+}
+
+/* FORM */
+
+form input, form textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  background:#020617;
+  color:white;
+  border:1px solid #1e293b;
+}
+
+form input:focus, form textarea:focus{
+  border:1px solid #38bdf8;
+}
+
+form button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:#38bdf8;
+  color:#020617;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+form button:hover{
+  background:#0ea5e9;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#94a3b8;
+  margin-top:60px;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+  <h2>The Entity Solutions</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">What we do</a>
+    <a href="pricing.html">Pricing</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Start Your Company Registration</h1>
+  <p>Fill in your details below and we will handle your CIPC registration.</p>
+</section>
+
+<div class="container">
+
+  <form action="#" method="POST">
+
+    <input type="text" name="full_name" placeholder="Full Name" required>
+
+    <input type="email" name="email" placeholder="Email Address" required>
+
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <input type="text" name="company_name" placeholder="Preferred Company Name" required>
+
+    <input type="text" name="second_name" placeholder="Second Name Option (Optional)">
+
+    <input type="text" name="third_name" placeholder="Third Name Option (Optional)">
+
+    <textarea name="address" rows="3" placeholder="Residential Address" required></textarea>
+
+    <button type="submit">Submit Registration</button>
+
+  </form>
+
+</div>
+
+<footer>
+  © 2026 The Entity Solutions
+</footer>
+
+</body>
+</html>
