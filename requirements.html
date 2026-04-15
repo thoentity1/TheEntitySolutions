@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Requirements Form</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family:Poppins, sans-serif;
+    background:#0f0f0f;
+    color:white;
+    padding:20px;
+}
+
+h1 {
+    text-align:center;
+    color:#0CCF26;
+}
+
+form {
+    max-width:600px;
+    margin:auto;
+}
+
+input, textarea, select {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
+}
+
+label {
+    font-size:14px;
+    color:#ccc;
+}
+
+button {
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border:none;
+    width:100%;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Website Requirements Form</h1>
+
+<form onsubmit="sendToWhatsApp(); return false;">
+
+<h3>1. Client Info</h3>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="business" placeholder="Business Name">
+<input type="text" id="phone" placeholder="Contact Number">
+
+<h3>2. Business Overview</h3>
+<textarea id="overview" placeholder="What does your business do?"></textarea>
+<input type="text" id="audience" placeholder="Target audience">
+
+<h3>3. Website Purpose</h3>
+<input type="text" id="purpose" placeholder="Main goal of website">
+
+<h3>4. Pages Needed</h3>
+<input type="text" id="pages" placeholder="e.g. Home, Services, Contact">
+
+<h3>5. Design Preferences</h3>
+<input type="text" id="design" placeholder="Style, colors, inspiration">
+
+<h3>6. Features</h3>
+<input type="text" id="features" placeholder="e.g. payments, booking, WhatsApp">
+
+<h3>7. Timeline</h3>
+<input type="text" id="timeline" placeholder="Deadline">
+
+<h3>8. Budget</h3>
+<input type="text" id="budget" placeholder="Budget range">
+
+<h3>9. Additional Notes</h3>
+<textarea id="notes" placeholder="Extra requirements"></textarea>
+
+<button type="submit">Send via WhatsApp</button>
+
+</form>
+
+<script>
+function sendToWhatsApp() {
+
+    let phoneNumber = "27XXXXXXXXX"; // 🔴 PUT YOUR NUMBER HERE
+
+    let message = "New Website Request:%0a%0a"
+    + "Name: " + document.getElementById("name").value + "%0a"
+    + "Business: " + document.getElementById("business").value + "%0a"
+    + "Phone: " + document.getElementById("phone").value + "%0a%0a"
+
+    + "Business Overview: " + document.getElementById("overview").value + "%0a"
+    + "Target Audience: " + document.getElementById("audience").value + "%0a%0a"
+
+    + "Purpose: " + document.getElementById("purpose").value + "%0a"
+    + "Pages: " + document.getElementById("pages").value + "%0a"
+    + "Design: " + document.getElementById("design").value + "%0a"
+    + "Features: " + document.getElementById("features").value + "%0a%0a"
+
+    + "Timeline: " + document.getElementById("timeline").value + "%0a"
+    + "Budget: " + document.getElementById("budget").value + "%0a%0a"
+
+    + "Notes: " + document.getElementById("notes").value;
+
+    let url = "https://wa.me/" + phoneNumber + "?text=" + message;
+
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
