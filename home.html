@@ -1,414 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Entity Solutions (Pty) Ltd</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-nav {
-    background:#111;
-    text-align:center;
-    padding:15px;
-}
+    <title>The Entity Solutions (Pty) Ltd</title>
 
-nav ul {
-    list-style:none;
-    padding:0;
-    margin:5px 0;
-}
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-nav ul li {
-    display:inline-block;
-    margin:0 15px;
-}
+    <style>
 
-nav a {
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
-nav a:hover {
-    color:#22d3ee;
-}
-html{scroll-behavior:smooth;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body{
-  background: linear-gradient(135deg,#020617,#0f172a,#020617);
-  color:#e2e8f0;
-}
+        body {
+            background: linear-gradient(
+                135deg,
+                #020617,
+                #0f172a,
+                #020617
+            );
 
-/* NAVBAR */
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
 
-nav{
-  position: sticky;
-  top:0;
-  width:100%;
-  background: rgba(2,6,23,0.7);
-  backdrop-filter: blur(12px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 8%;
-  z-index:999;
-}
+        a {
+            text-decoration: none;
+        }
 
-.logo img{height:55px;}
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:28px;
-}
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
 
-nav ul li a{
-  text-decoration:none;
-  color:#e2e8f0;
-}
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
 
-nav ul li a:hover{color:#22d3ee;}
+            background: rgba(2, 6, 23, 0.90);
 
-/* HERO */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
 
-.hero{
-  height:92vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background: radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 60%);
-}
+            padding: 15px 8%;
 
-.hero h4{color:#94a3b8;}
-.hero h1{font-size:64px;color:#67e8f9;}
-.hero p{margin-top:15px;color:#cbd5f5;}
+            z-index: 999;
 
-.btn{
-  padding:12px 28px;
-  border-radius:8px;
-  text-decoration:none;
-  margin:5px;
-  font-weight:600;
-  display:inline-block;
-}
+            text-align: center;
 
-.btn-outline{
-  border:1px solid #22d3ee;
-  color:#22d3ee;
-}
+            border-bottom: 1px solid rgba(34, 211, 238, 0.10);
+        }
 
-.btn-fill{
-  background:#22d3ee;
-  color:#02131f;
-}
 
-/* SERVICES */
+        /* COMPANY NAME */
 
-.services{
-  text-align:center;
-  padding:80px 10%;
-}
+        nav h2 {
+            color: #22d3ee;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
 
-.service{margin-bottom:60px;}
 
-.service img{
-  width:60px;
-  filter: drop-shadow(0 0 10px #22d3ee);
-}
+        /* NAVIGATION ROWS */
 
-.service h3{color:#a78bfa;}
-.service p{color:#94a3b8;max-width:650px;margin:auto;}
+        nav ul {
+            list-style: none;
 
-/* ABOUT */
+            padding: 0;
+            margin: 6px 0;
 
-.about{
-  text-align:center;
-  padding:90px 12%;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(10px);
-}
+            display: flex;
 
-.about h2{color:#22d3ee;margin-bottom:20px;}
-.about p{color:#cbd5f5;line-height:1.7;}
+            justify-content: center;
+            align-items: center;
 
-/* CONTACT */
+            gap: 28px;
 
-.contact{
-  display:flex;
-  flex-wrap:wrap;
-  gap:40px;
-  padding:70px 10%;
-}
+            flex-wrap: wrap;
+        }
 
-.contact-form{
-  flex:1;
-  min-width:280px;
-}
 
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:15px;
-  border-radius:8px;
-  background:#020617;
-  color:#e2e8f0;
-  border:1px solid rgba(34,211,238,0.2);
-}
+        /* NAVIGATION ITEMS */
 
-.contact-form button{
-  padding:14px;
-  border:none;
-  border-radius:8px;
-  background:#22d3ee;
-  color:#02131f;
-  font-weight:600;
-  cursor:pointer;
-}
+        nav ul li {
+            margin: 0;
+        }
 
-.contact-info{
-  flex:1;
-  min-width:280px;
-  color:#94a3b8;
-}
 
-footer{
-  text-align:center;
-  padding:25px;
-  color:#64748b;
-}
+        /* NAVIGATION LINKS */
 
-</style>
-  <script>
-// Disable right click
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
+        nav ul li a {
+            color: #e2e8f0;
 
-// Disable keyboard shortcuts
-document.addEventListener("keydown", function(e){
-  if (
-    e.keyCode == 123 || // F12
-    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
-    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
-    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
+            font-size: 15px;
+            font-weight: 500;
+
+            transition: color 0.3s ease;
+        }
+
+
+        /* HOVER */
+
+        nav ul li a:hover {
+            color: #22d3ee;
+        }
+
+
+        /* =====================================================
+           HERO SECTION
+        ===================================================== */
+
+        .hero {
+
+            min-height: 92vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(34, 211, 238, 0.12),
+                    transparent 60%
+                );
+        }
+
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+
+        /* SMALL TITLE */
+
+        .hero h4 {
+            color: #94a3b8;
+
+            font-size: 16px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* MAIN TITLE */
+
+        .hero h1 {
+
+            font-size: 64px;
+
+            line-height: 1.1;
+
+            color: #67e8f9;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 25px rgba(34, 211, 238, 0.20);
+        }
+
+
+        /* HERO DESCRIPTION */
+
+        .hero p {
+
+            margin: 0 auto 30px;
+
+            max-width: 700px;
+
+            color: #cbd5f5;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .btn {
+
+            padding: 12px 28px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            margin: 5px;
+
+            font-weight: 600;
+
+            display: inline-block;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* OUTLINE BUTTON */
+
+        .btn-outline {
+
+            border: 1px solid #22d3ee;
+
+            color: #22d3ee;
+
+            background: transparent;
+        }
+
+
+        .btn-outline:hover {
+
+            background: #22d3ee;
+
+            color: #02131f;
+        }
+
+
+        /* FILLED BUTTON */
+
+        .btn-fill {
+
+            background: #22d3ee;
+
+            color: #02131f;
+        }
+
+
+        .btn-fill:hover {
+
+            background: #67e8f9;
+        }
+
+
+        /* =====================================================
+           SERVICES SECTION
+        ===================================================== */
+
+        .services {
+
+            text-align: center;
+
+            padding: 90px 10%;
+
+            max-width: 1300px;
+
+            margin: auto;
+        }
+
+
+        .services-title {
+
+            color: #22d3ee;
+
+            font-size: 36px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .service {
+
+            margin-bottom: 60px;
+        }
+
+
+        .service-card {
+
+            display: block;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.02);
+
+            border: 1px solid rgba(34, 211, 238, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .service-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: rgba(34, 211, 238, 0.30);
+
+            background: rgba(34, 211, 238, 0.04);
+        }
+
+
+        .service img {
+
+            width: 60px;
+
+            height: 60px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 0 10px #22d3ee
+                );
+        }
+
+
+        .service h3 {
+
+            color: #a78bfa;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .service p {
+
+            color: #94a3b8;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           ABOUT SECTION
+        ===================================================== */
+
+        .about {
+
+            text-align: center;
+
+            padding: 90px 12%;
+
+            background:
+                rgba(255, 255, 255, 0.02);
+
+            backdrop-filter: blur(10px);
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.03);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.03);
+        }
+
+
+        .about h2 {
+
+            color: #22d3ee;
+
+            margin-bottom: 20px;
+
+            font-size: 36px;
+        }
+
+
+        .about p {
+
+            color: #cbd5f5;
+
+            line-height: 1.8;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           CONTACT SECTION
+        ===================================================== */
+
+        .contact {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 40px;
+
+            padding: 80px 10%;
+
+            max-width: 1300px;
+
+            margin: auto;
+        }
+
+
+        .contact-form {
+
+            flex: 1;
+
+            min-width: 280px;
+        }
+
+
+        .contact-form h2 {
+
+            color: #22d3ee;
+
+            margin-bottom: 25px;
+
+            font-size: 32px;
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border-radius: 8px;
+
+            background: #020617;
+
+            color: #e2e8f0;
+
+            border:
+                1px solid rgba(34, 211, 238, 0.20);
+
+            outline: none;
+
+            resize: vertical;
+        }
+
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+
+            border-color: #22d3ee;
+
+            box-shadow:
+                0 0 10px rgba(34, 211, 238, 0.10);
+        }
+
+
+        .contact-form label {
+
+            display: block;
+
+            color: #cbd5f5;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+        }
+
+
+        .contact-form button {
+
+            padding: 14px 25px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #22d3ee;
+
+            color: #02131f;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .contact-form button:hover {
+
+            background: #67e8f9;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* CONTACT INFORMATION */
+
+        .contact-info {
+
+            flex: 1;
+
+            min-width: 280px;
+
+            color: #94a3b8;
+
+            padding-top: 10px;
+        }
+
+
+        .contact-info h3 {
+
+            color: #22d3ee;
+
+            margin-bottom: 20px;
+        }
+
+
+        .contact-info p {
+
+            margin-bottom: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #64748b;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.05);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           MOBILE RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+
+            nav h2 {
+                font-size: 20px;
+            }
+
+
+            nav ul {
+                gap: 15px;
+            }
+
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+
+            .hero {
+                min-height: 80vh;
+
+                padding: 60px 20px;
+            }
+
+
+            .hero h4 {
+                font-size: 13px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .services {
+                padding: 70px 6%;
+            }
+
+
+            .services-title {
+                font-size: 30px;
+            }
+
+
+            .about {
+                padding: 70px 7%;
+            }
+
+
+            .about h2 {
+                font-size: 30px;
+            }
+
+
+            .contact {
+                padding: 70px 6%;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            nav ul {
+                gap: 10px 16px;
+            }
+
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+
+            .btn {
+                width: 90%;
+
+                max-width: 250px;
+
+                margin: 5px auto;
+            }
+
+
+            .service-card {
+                padding: 25px 18px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
 <nav>
-  <h2 style="color:#22d3ee;">The Entity Solutions</h2>
 
-  <!-- TOP ROW -->
-  <ul class="nav-top">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#services">What We Do</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="catalogue.html">Catalogue</a></li>
-  </ul>
+    <h2>The Entity Solutions</h2>
 
-  <!-- BOTTOM ROW -->
-  <ul class="nav-bottom">
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+
+    <!-- TOP ROW -->
+
+    <ul class="nav-top">
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="#services">What We Do</a>
+        </li>
+
+        <li>
+            <a href="pricing.html">Pricing</a>
+        </li>
+
+        <li>
+            <a href="catalogue.html">Catalogue</a>
+        </li>
+
     </ul>
+
+
+    <!-- BOTTOM ROW -->
+
+    <ul class="nav-bottom">
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
 </nav>
-<!-- HERO -->
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero">
-  <div>
-    <h4>WE HELP BUSINESSES</h4>
-    <h1>SCALE & GROW</h1>
-    <p>Professional Web Design, SEO, and IT solutions to grow your business online.</p>
 
-    <a href="#services" class="btn btn-outline">Explore</a>
-    <a href="#contact" class="btn btn-fill">Contact Us</a>
-  </div>
+    <div class="hero-content">
+
+        <h4>WE HELP BUSINESSES</h4>
+
+        <h1>SCALE &amp; GROW</h1>
+
+        <p>
+            Professional Web Design, SEO, and IT solutions
+            to grow your business online.
+        </p>
+
+
+        <a href="#services" class="btn btn-outline">
+            Explore
+        </a>
+
+
+        <a href="#contact" class="btn btn-fill">
+            Contact Us
+        </a>
+
+    </div>
+
 </section>
+    ```html
+<!-- =========================================================
+     SERVICES
+========================================================= -->
 
-<!-- SERVICES -->
 <section class="services" id="services">
-  
-  <div class="service">
-  <a href="cipc.html" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="CIPC Registration">
-    <h3>Company Registration</h3>
-    <p>Register your company quickly and affordably for only R500. We handle all documentation for you.</p>
-  </a>
-</div>
 
-  <div class="service">
-    <a href="web-development.html" class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Web Development">
-      <h3>Web Development</h3>
-      <p>We build fast, modern, and responsive websites tailored to your business needs.</p>
-    </a>
-  </div>
+    <h2 class="services-title">
+        What We Do
+    </h2>
 
-  <div class="service">
-    <a href="design-branding.html" class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Design & Branding">
-      <h3>Design & Branding</h3>
-      <p>Creative designs that capture attention and strengthen your brand identity.</p>
-    </a>
-  </div>
 
-  <div class="service">
-    <a href="social-media.html" class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="Social Media">
-      <h3>Social Media</h3>
-      <p>We manage content, engagement, and growth across all major platforms.</p>
-    </a>
-  </div>
+    <!-- =====================================================
+         COMPANY REGISTRATION
+    ====================================================== -->
 
-  <div class="service">
-    <a href="seo-optimisation.html" class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="SEO Optimisation">
-      <h3>SEO Optimisation</h3>
-      <p>Improve visibility and rank higher on Google to attract more customers.</p>
-    </a>
-  </div>
+    <div class="service">
+
+        <a href="cipc.html" class="service-card">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                alt="Company Registration"
+            >
+
+            <h3>
+                Company Registration
+            </h3>
+
+            <p>
+                Register your company quickly and affordably
+                for only R500. We handle all documentation
+                and guide you through the registration process.
+            </p>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WEB DEVELOPMENT
+    ====================================================== -->
+
+    <div class="service">
+
+        <a href="web-development.html" class="service-card">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+                alt="Web Development"
+            >
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                We build fast, modern, responsive websites
+                tailored to your business needs and designed
+                to provide a professional online presence.
+            </p>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DESIGN & BRANDING
+    ====================================================== -->
+
+    <div class="service">
+
+        <a href="design-branding.html" class="service-card">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png"
+                alt="Design and Branding"
+            >
+
+            <h3>
+                Design &amp; Branding
+            </h3>
+
+            <p>
+                Creative designs that capture attention,
+                strengthen your brand identity, and help
+                your business stand out from the competition.
+            </p>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SOCIAL MEDIA
+    ====================================================== -->
+
+    <div class="service">
+
+        <a href="social-media.html" class="service-card">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png"
+                alt="Social Media Management"
+            >
+
+            <h3>
+                Social Media
+            </h3>
+
+            <p>
+                We manage content, engagement, and growth
+                across major social media platforms to help
+                your business connect with customers.
+            </p>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SEO
+    ====================================================== -->
+
+    <div class="service">
+
+        <a href="seo-optimisation.html" class="service-card">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png"
+                alt="SEO Optimisation"
+            >
+
+            <h3>
+                SEO Optimisation
+            </h3>
+
+            <p>
+                Improve your website visibility and search
+                engine performance so potential customers
+                can find your business more easily online.
+            </p>
+
+        </a>
+
+    </div>
 
 </section>
+```
+```html
+<!-- =========================================================
+     ABOUT US
+========================================================= -->
 
-
-</section>
-
-<!-- ABOUT -->
 <section class="about" id="about">
-  <h2>About Us</h2>
-  <p>
-    The Entity Solutions (PTY) Ltd is a digital solutions company dedicated to helping businesses grow through modern technology and strategies. We specialize in company registration, financial management, website design, software development, digital marketing, agile project management and online business solutions that empower brands to strengthen their digital presence and connect with customers more effectively.
-  </p>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
+    <h2>
+        About Us
+    </h2>
 
-  <div class="contact-form">
-    <h2>Get In Touch</h2>
+    <p>
+        The Entity Solutions (PTY) Ltd is a digital solutions
+        company dedicated to helping businesses grow through
+        modern technology and effective digital strategies.
+        We specialize in company registration, financial
+        management, website design, software development,
+        digital marketing, agile project management, and
+        online business solutions.
 
-    <input type="text" id="name" placeholder="Name *">
-    <input type="text" id="phone" placeholder="Phone *">
-    <input type="email" id="email" placeholder="Email *">
-    <textarea id="customerMessage" rows="6" placeholder="Your Message"></textarea>
-
-<label>🛒 Order Details</label>
-<textarea id="orderDetails" readonly></textarea>
-
-<!-- ✅ ADD DELIVERY FIELD HERE -->
-<label for="delivery">Delivery Address</label>
-<textarea id="delivery" name="delivery" placeholder="Enter delivery address" required></textarea>
-    <button onclick="sendWhatsApp()">Send Message</button>
-  </div>
-
-  <div class="contact-info">
-    <p>📞 083 214 2201</p>
-    <p>📍 Sandton, South Africa</p>
-  </div>
+        Our goal is to empower businesses to strengthen their
+        digital presence, improve their operations, and connect
+        with customers more effectively.
+    </p>
 
 </section>
+
+
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+
+<section class="contact" id="contact">
+
+
+    <!-- =====================================================
+         CONTACT FORM
+    ====================================================== -->
+
+    <div class="contact-form">
+
+        <h2>
+            Get In Touch
+        </h2>
+
+
+        <!-- NAME -->
+
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name *"
+            required
+        >
+
+
+        <!-- PHONE -->
+
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone *"
+            required
+        >
+
+
+        <!-- EMAIL -->
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email *"
+            required
+        >
+
+
+        <!-- CUSTOMER MESSAGE -->
+
+        <textarea
+            id="customerMessage"
+            name="customerMessage"
+            rows="6"
+            placeholder="Your Message"
+        ></textarea>
+
+
+
+        <!-- =================================================
+             ORDER DETAILS
+        ================================================== -->
+
+        <label for="orderDetails">
+            🛒 Order Details
+        </label>
+
+        <textarea
+            id="orderDetails"
+            name="orderDetails"
+            rows="5"
+            placeholder="Your selected products or services will appear here."
+            readonly
+        ></textarea>
+
+
+
+        <!-- =================================================
+             DELIVERY ADDRESS
+        ================================================== -->
+
+        <label for="delivery">
+            Delivery Address
+        </label>
+
+        <textarea
+            id="delivery"
+            name="delivery"
+            rows="4"
+            placeholder="Enter delivery address"
+        ></textarea>
+
+
+
+        <!-- =================================================
+             WHATSAPP BUTTON
+        ================================================== -->
+
+        <button
+            type="button"
+            onclick="sendWhatsApp()"
+        >
+            Send Message
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONTACT INFORMATION
+    ====================================================== -->
+
+    <div class="contact-info">
+
+        <h3>
+            Contact Information
+        </h3>
+
+        <p>
+            📞 <strong>083 214 2201</strong>
+        </p>
+
+        <p>
+            📍 Sandton, South Africa
+        </p>
+
+        <p>
+            💬 Contact us directly on WhatsApp for
+            enquiries, quotations, and orders.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
-© 2026 The Entity Solutions (PTY) Ltd
+
+    © 2026 The Entity Solutions (PTY) Ltd.
+    All Rights Reserved.
+
 </footer>
+```
 
-<script>
-function sendWhatsApp() {
-
-  var name = document.getElementById("name").value;
-  var phone = document.getElementById("phone").value;
-  var email = document.getElementById("email").value;
-  var message = document.getElementById("customerMessage").value;
-  var order = document.getElementById("orderDetails").value;
-  var delivery = document.getElementById("delivery").value;
-
-  if(name === "" || phone === "" || email === ""){
-    alert("Please fill in all required fields.");
-    return;
-  }
-
-  var whatsappNumber = "27719909430";
-
-  var text =
-    "Client Request:\n\n" +
-    "Name: " + name + "\n" +
-    "Phone: " + phone + "\n" +
-    "Email: " + email + "\n\n" +
-    "Order Details:\n" + order + "\n\n" +
-    "Delivery Address:\n" + delivery + "\n\n" +
-    "Message:\n" + message;
-
-  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
-
-  window.open(url, "_blank");
-
-  // clear cart after sending
-  localStorage.removeItem("cart");
-  localStorage.removeItem("orderMessage");
-}
-</script>
-
-}
-<script>
-window.onload = function () {
-
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-
-  if(plan){
-    
-    // scroll to contact section
-    document.getElementById("contact").scrollIntoView({
-      behavior: "smooth"
-    });
-
-    // autofill message
-    document.getElementById("message").value =
-      "Hi, I'm interested in the " + plan + " plan. Please contact me.";
-
-  }
-
-};
-</script>
- <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  // Autofill selected plan
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-
-  if(plan){
-    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-    document.getElementById("customerMessage").value =
-      "Hi, I'm interested in the " + plan + " plan.";
-  }
-
-  // Autofill cart order
-  const order = localStorage.getItem("orderMessage");
-
-  if(order && document.getElementById("orderDetails")){
-    document.getElementById("orderDetails").value = order;
-    localStorage.removeItem("orderMessage");
-  }
-
-});
-</script>
-
-
-
-</body>
-</html>
