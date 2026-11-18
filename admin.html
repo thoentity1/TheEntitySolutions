@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+
+<title>Admin Portal | The Entity Solutions</title>
+
+<style>
+:root {
+    --bg: #07111f;
+    --panel: #0d1b2c;
+    --panel2: #102338;
+    --teal: #19d3d0;
+    --text: #eef7fb;
+    --muted: #9bb0c1;
+    --gold: #e5bd6b;
+    --border: rgba(137,180,202,.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 75% 0%,
+            rgba(25,211,208,.12),
+            transparent 40%
+        ),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* HEADER */
+
+.header {
+    min-height: 82px;
+    padding: 16px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: rgba(5,13,24,.96);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    color: var(--teal);
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.brand-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand-subtitle {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status {
+    padding: 8px 12px;
+    color: var(--teal);
+    background: rgba(25,211,208,.08);
+    border: 1px solid rgba(25,211,208,.25);
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.button {
+    display: inline-block;
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--panel2);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.button:hover {
+    border-color: var(--teal);
+}
+
+.button-primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #06202a;
+}
+
+/* PAGE LAYOUT */
+
+.layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0,1fr);
+    min-height: calc(100vh - 82px);
+}
+
+.sidebar {
+    padding: 25px 16px;
+    background: rgba(7,17,31,.7);
+    border-right: 1px solid var(--border);
+}
+
+.nav-heading {
+    margin: 10px 12px 13px;
+    color: #7191a8;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.nav a {
+    display: block;
+    padding: 13px 12px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    color: #b7c9d5;
+    font-size: 13px;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--teal);
+    background: rgba(25,211,208,.08);
+    border-color: rgba(25,211,208,.2);
+}
+
+.sidebar-info {
+    margin: 20px 8px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* MAIN CONTENT */
+
+main {
+    width: 100%;
+    max-width: 1500px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 35px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: clamp(28px,4vw,42px);
+    letter-spacing: -1px;
+}
+
+h1 span {
+    color: var(--teal);
+}
+
+.lead {
+    max-width: 650px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.stage {
+    padding: 10px 13px;
+    border: 1px solid rgba(229,189,107,.25);
+    border-radius: 10px;
+    background: rgba(229,189,107,.06);
+    color: var(--gold);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.notice {
+    margin-bottom: 25px;
+    padding: 15px 17px;
+    border: 1px solid rgba(229,189,107,.25);
+    border-radius: 10px;
+    background: rgba(229,189,107,.06);
+    color: #e8d5ad;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* SUMMARY CARDS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 15px;
+    margin-bottom: 32px;
+}
+
+.stat {
+    padding: 21px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        var(--panel2),
+        var(--panel)
+    );
+}
+
+.stat-label {
+    margin-bottom: 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.stat-value {
+    color: var(--teal);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.stat-foot {
+    margin-top: 10px;
+    color: #7f9bad;
+    font-size: 11px;
+}
+
+/* ADMINISTRATION MODULES */
+
+.section-heading {
+    margin: 30px 0 17px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.section-caption {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 23px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        #102338,
+        #0a1929
+    );
+}
+
+.module {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-height: 165px;
+    transition: .2s;
+}
+
+.module:hover {
+    transform: translateY(-2px);
+    border-color: rgba(25,211,208,.4);
+}
+
+.module-icon {
+    display: grid;
+    flex: 0 0 46px;
+    height: 46px;
+    place-items: center;
+    border: 1px solid rgba(25,211,208,.2);
+    border-radius: 12px;
+    background: rgba(25,211,208,.09);
+    color: var(--teal);
+    font-size: 20px;
+}
+
+.module h3 {
+    margin: 3px 0 10px;
+    font-size: 16px;
+}
+
+.module p {
+    margin: 0 0 17px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.module-link {
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* LOWER PANELS */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.list-row:last-child {
+    border-bottom: 0;
+}
+
+.tag {
+    padding: 5px 8px;
+    border: 1px solid rgba(229,189,107,.25);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 30px 0 8px;
+    color: #71889a;
+    font-size: 11px;
+}
+
+/* LOADING AND ERROR MESSAGES */
+
+.message-box {
+    max-width: 650px;
+    margin: 70px auto;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--panel);
+    line-height: 1.8;
+}
+
+.message-box h1 {
+    font-size: 26px;
+}
+
+.message-box p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.message-box .button {
+    margin-top: 10px;
+}
+
+.error-text {
+    color: #ffaaaa !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1050px) {
+    .layout {
+        grid-template-columns: 210px minmax(0,1fr);
+    }
+
+    main {
+        padding: 25px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:760px) {
+    .header {
+        padding: 15px;
+    }
+
+    .status {
+        display: none;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        padding: 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto;
+    }
+
+    .nav-heading,
+    .sidebar-info {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        min-width: max-content;
+        margin: 0;
+    }
+
+    .nav a {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 22px 15px;
+    }
+
+    .welcome {
+        display: block;
+    }
+
+    .stage {
+        display: inline-block;
+        margin-top: 16px;
+    }
+
+    .modules,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .module {
+        min-height: auto;
+    }
+}
+
+@media(max-width:420px) {
+    .stats {
+        gap: 9px;
+    }
+
+    .stat {
+        padding: 14px;
+    }
+
+    .stat-value {
+        font-size: 22px;
+    }
+
+    .brand-title {
+        font-size: 12px;
+    }
+
+    .brand-subtitle {
+        font-size: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="https://theentitysolutions.com/" class="brand">
+
+        <div class="logo">TES</div>
+
+        <div>
+            <div class="brand-title">THE ENTITY SOLUTIONS</div>
+
+            <span class="brand-subtitle">
+                DIGITAL BUSINESS · SCALE & GROW
+            </span>
+        </div>
+
+    </a>
+
+    <div class="header-actions">
+
+        <span class="status" id="sessionStatus">
+            Initialising...
+        </span>
+
+        <button class="button" id="signOutButton" type="button">
+            Sign Out
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- This message remains visible if JavaScript fails. -->
+
+<section id="loadingMessage" class="message-box">
+
+    <div class="eyebrow">TES Digital Hub</div>
+
+    <h1>Preparing your <span style="color:var(--teal)">workspace</span></h1>
+
+    <p id="loadingText">
+        Checking your sign-in session. Please wait...
+    </p>
+
+</section>
+
+
+<!-- Authentication errors are displayed here, not as a blank screen. -->
+
+<section id="authMessage" class="message-box hidden">
+
+    <div class="eyebrow">Secure access</div>
+
+    <h1 id="authTitle">Sign-in required</h1>
+
+    <p id="authText">
+        Please sign in to access the administration workspace.
+    </p>
+
+    <p id="errorDetails" class="error-text"></p>
+
+    <a href="login.html" class="button button-primary">
+        Return to Sign In
+    </a>
+
+    <button
+        type="button"
+        class="button"
+        onclick="location.reload()">
+        Try Again
+    </button>
+
+</section>
+
+
+<!-- The dashboard is shown only after a session is verified. -->
+
+<div class="layout hidden" id="portal">
+
+    <aside class="sidebar">
+
+        <div class="nav-heading">WORKSPACE</div>
+
+        <nav class="nav">
+
+            <a class="active" href="#overview">▦ &nbsp; Overview</a>
+
+            <a href="#userManagement">♙ &nbsp; User Management</a>
+
+            <a href="clients.html"><span class="nav-icon">▣ &nbsp; Client Management</a>
+
+            <a href="#applications">◈ &nbsp; Applications</a>
+
+            <a href="#settings">⚙️ &nbsp; System Settings</a>
+
+        </nav>
+
+        <div class="nav-heading">PLATFORM</div>
+
+        <nav class="nav">
+
+            <a href="dashboard.html">⌂ &nbsp; Digital Hub Home</a>
+
+            <a href="https://theentitysolutions.com/">
+                ↗️ &nbsp; Company Website
+            </a>
+
+        </nav>
+
+        <div class="sidebar-info">
+            <strong style="color:white">TES Digital Hub</strong>
+            <br>
+            One central workspace for The Entity Solutions' digital
+            operations and applications.
+        </div>
+
+    </aside>
+
+
+    <main id="overview">
+
+        <section class="welcome">
+
+            <div>
+
+                <div class="eyebrow">
+                    Administration Workspace
+                </div>
+
+                <h1>
+                    Admin <span>Centre</span>
+                </h1>
+
+                <p class="lead">
+                    Manage your digital platform, users, clients and
+                    applications from one professional workspace.
+                </p>
+
+            </div>
+
+            <div class="stage">
+                STAGE 1 · FOUNDATION
+            </div>
+
+        </section>
+
+
+        <div class="notice">
+            <strong>Security notice:</strong>
+            Signing in verifies your session, but does not automatically
+            grant administrator privileges. Administrator permissions
+            and database security policies must be implemented before
+            this portal manages real records.
+        </div>
+
+
+        <section class="stats">
+
+            <article class="stat">
+                <div class="stat-label">Registered Users</div>
+                <div class="stat-value">—</div>
+                <div class="stat-foot">Database connection required</div>
+            </article>
+
+            <article class="stat">
+                <div class="stat-label">Active Clients</div>
+                <div class="stat-value">—</div>
+                <div class="stat-foot">Client database required</div>
+            </article>
+
+            <article class="stat">
+                <div class="stat-label">Platform Applications</div>
+                <div class="stat-value">6</div>
+                <div class="stat-foot">Planned TES applications</div>
+            </article>
+
+            <article class="stat">
+                <div class="stat-label">Authentication</div>
+                <div class="stat-value" id="authValue">Checking</div>
+                <div class="stat-foot" id="authFoot">
+                    Verifying session
+                </div>
+            </article>
+
+        </section>
+
+
+        <div class="section-heading">
+            <h2>Administration Modules</h2>
+            <div class="section-caption">
+                Your central administration workspace
+            </div>
+        </div>
+
+
+        <section class="modules">
+
+            <article class="card module" id="users">
+
+                <div class="module-icon">♙</div>
+
+                <div>
+                    <h3>User Management</h3>
+
+                    <p>
+                        Prepare account administration, role assignments
+                        and access reviews. Live user-management actions
+                        still need to be connected.
+                    </p>
+
+                    <a href="#settings" class="module-link">
+                        CONFIGURE ACCESS →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card module" id="clients">
+
+                <div class="module-icon">▣</div>
+
+                <div>
+                    <h3>Client Management</h3>
+
+                    <p>
+                        Prepare a central workspace for client profiles,
+                        company information and service relationships.
+                    </p>
+
+                    <a href="#settings" class="module-link">
+                        SET UP CLIENT DATA →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card module" id="applications">
+
+                <div class="module-icon">◈</div>
+
+                <div>
+                    <h3>Application Management</h3>
+
+                    <p>
+                        Review the TES application portfolio and track
+                        each application's development status.
+                    </p>
+
+                    <a href="#applicationList" class="module-link">
+                        VIEW APPLICATIONS ↓
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card module" id="settings">
+
+                <div class="module-icon">⚙️</div>
+
+                <div>
+                    <h3>System Settings</h3>
+
+                    <p>
+                        Prepare platform preferences, security
+                        configuration and administrative options.
+                    </p>
+
+                    <a href="#security" class="module-link">
+                        REVIEW SECURITY →
+                    </a>
+                </div>
+
+            </article>
+
+        </section>
+        <!-- USER MANAGEMENT MODULE -->
+
+<section id="userManagement" class="card"
+         style="margin-top:30px;">
+
+    <div class="section-heading">
+        <div class="eyebrow">ADMINISTRATION</div>
+        <h2>User Management</h2>
+        <div class="section-caption">
+            Manage TES Digital Hub users and access permissions.
+        </div>
+    </div>
+
+    <div style="display:flex;gap:12px;
+                flex-wrap:wrap;margin:20px 0;">
+
+        <input
+            type="search"
+            id="userSearch"
+            placeholder="Search users..."
+            style="padding:12px;flex:1;min-width:200px;
+                   border-radius:8px;border:1px solid #345;
+                   background:#102338;color:white;">
+
+        <button class="button button-primary"
+                id="refreshUsers">
+            Refresh Users
+        </button>
+
+    </div>
+
+    <div id="userMessage" class="section-caption">
+        User directory is ready.
+    </div>
+
+    <!-- CREATE USER FORM -->
+<div style="margin:20px 0;padding:20px;background:#0d1b2c;
+            border:1px solid #345;border-radius:10px;">
+
+  <h3 style="color:#19d3d0;">Create New User</h3>
+
+  <div style="display:grid;gap:12px;max-width:500px;">
+
+    <input id="newUserName" type="text"
+      placeholder="Full Name"
+      style="padding:12px;border-radius:8px;">
+
+    <input id="newUserEmail" type="email"
+      placeholder="Email Address"
+      style="padding:12px;border-radius:8px;">
+
+    <select id="newUserRole"
+      style="padding:12px;border-radius:8px;">
+      <option value="">Select User Role</option>
+      <option value="manager">Manager</option>
+      <option value="staff">Staff</option>
+      <option value="client">Client</option>
+    </select>
+
+    <button type="button" id="createUserBtn"
+      class="button button-primary">
+      Create User & Send Invitation
+    </button>
+
+    <div id="createUserMessage"
+      style="color:#19d3d0;"></div>
+
+  </div>
+</div>
+<!-- END CREATE USER FORM -->
+    <div style="overflow-x:auto;margin-top:20px;">
+
+        <table style="width:100%;border-collapse:collapse;
+                      text-align:left;font-size:13px;">
+
+            <thead>
+                <tr style="color:#19d3d0;">
+                    <th style="padding:14px;">Full Name</th>
+                    <th style="padding:14px;">Email</th>
+                    <th style="padding:14px;">Role</th>
+                </tr>
+            </thead>
+
+            <tbody id="userTableBody">
+                <tr>
+                    <td colspan="3" style="padding:15px;">
+                        Loading users...
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- END USER MANAGEMENT -->
+
+        <section class="bottom-grid">
+
+            <article class="card" id="applicationList">
+
+                <h2>Application Portfolio</h2>
+
+                <div class="section-caption">
+                    Current planned modules
+                </div>
+
+                <div class="list-row">
+                    <span>TES Admin Portal</span>
+                    <span class="tag">Foundation</span>
+                </div>
+
+                <div class="list-row">
+                    <span>Business Manager</span>
+                    <span class="tag">Planned</span>
+                </div>
+
+                <div class="list-row">
+                    <span>WorkForce Pro</span>
+                    <span class="tag">Planned</span>
+                </div>
+
+                <div class="list-row">
+                    <span>Client Services</span>
+                    <span class="tag">Planned</span>
+                </div>
+
+                <div class="list-row">
+                    <span>Training & Learning</span>
+                    <span class="tag">Planned</span>
+                </div>
+
+                <div class="list-row">
+                    <span>Reporting & Analytics</span>
+                    <span class="tag">Planned</span>
+                </div>
+
+            </article>
+
+
+            <article class="card" id="security">
+
+                <h2>Security & System Status</h2>
+
+                <div class="section-caption">
+                    Session verification
+                </div>
+
+                <div class="list-row">
+                    <span>Supabase Session</span>
+                    <span id="sessionDetail" class="muted">
+                        Checking...
+                    </span>
+                </div>
+
+                <div class="list-row">
+                    <span>Administrator Role</span>
+                    <span class="tag">Not verified</span>
+                </div>
+
+                <div class="list-row">
+                    <span>Database Modules</span>
+                    <span class="tag">Not connected</span>
+                </div>
+
+                <p class="muted" style="font-size:12px;line-height:1.8">
+                    Administrator roles and Supabase Row Level Security
+                    policies must be configured before management actions
+                    are enabled. Never place a secret key in this file.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <footer>
+
+            <span>
+                © <span id="year"></span>
+                The Entity Solutions. All rights reserved.
+            </span>
+
+            <span>TES Digital Hub · Administration</span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+
+<script>
+"use strict";
+
+// ============================================================
+// TES ADMIN PORTAL
+// Supabase Authentication and Administrator Verification
+// ============================================================
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/*
+    SUPABASE CONFIGURATION
+
+    Use the exact Project URL and publishable key from login.html.
+
+    Never use a Supabase secret/service-role key in browser code.
+*/
+
+const SUPABASE_URL =
+    "https://jgzvycawkkfdvdimdjat.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_Qee9wbZ8erSC2dDDkSo9vg_3uh_gbgO";
+
+const LOGIN_PAGE = "login.html";
+
+let supabaseClient = null;
+let authListenerRegistered = false;
+
+
+// ============================================================
+// DISPLAY AUTHENTICATION ERRORS
+// ============================================================
+
+function showError(title, message, details = "") {
+
+    document.getElementById("loadingMessage")
+        .classList.add("hidden");
+
+    document.getElementById("portal")
+        .classList.add("hidden");
+
+    document.getElementById("authMessage")
+        .classList.remove("hidden");
+
+    document.getElementById("authTitle")
+        .textContent = title;
+
+    document.getElementById("authText")
+        .textContent = message;
+
+    document.getElementById("errorDetails")
+        .textContent = details;
+
+    document.getElementById("sessionStatus")
+        .textContent = "Attention needed";
+
+}
+
+
+// ============================================================
+// DISPLAY ADMIN PORTAL
+// ============================================================
+
+function showPortal() {
+
+    document.getElementById("loadingMessage")
+        .classList.add("hidden");
+
+    document.getElementById("authMessage")
+        .classList.add("hidden");
+
+    document.getElementById("portal")
+        .classList.remove("hidden");
+
+    document.getElementById("sessionStatus")
+        .textContent = "Session verified";
+
+    document.getElementById("authValue")
+        .textContent = "Connected";
+
+    document.getElementById("authFoot")
+        .textContent = "Administrator session verified";
+
+    document.getElementById("sessionDetail")
+        .textContent = "Authenticated";
+
+}
+
+
+// ============================================================
+// LOAD SUPABASE LIBRARY
+// ============================================================
+
+async function loadSupabaseLibrary() {
+
+    if (window.supabase) {
+        return window.supabase;
+    }
+
+    await new Promise((resolve, reject) => {
+
+        const script = document.createElement("script");
+
+        script.src =
+            "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4";
+
+        script.async = true;
+
+        script.onload = resolve;
+
+        script.onerror = () => reject(
+            new Error(
+                "Could not load the Supabase library."
+            )
+        );
+
+        document.head.appendChild(script);
+
+    });
+
+    if (!window.supabase) {
+
+        throw new Error(
+            "Supabase library is unavailable."
+        );
+
+    }
+
+    return window.supabase;
+
+}
+
+
+// ============================================================
+// AUTHENTICATION STATE LISTENER
+// ============================================================
+
+function registerAuthListener(client) {
+
+    if (authListenerRegistered) {
+        return;
+    }
+
+    client.auth.onAuthStateChange(
+        (event, session) => {
+
+            if (
+                event === "SIGNED_OUT" ||
+                !session
+            ) {
+
+                window.location.replace(
+                    LOGIN_PAGE
+                );
+
+            }
+
+        }
+    );
+
+    authListenerRegistered = true;
+
+}
+
+
+// ============================================================
+// INITIALISE ADMIN PORTAL
+// ============================================================
+
+async function initialisePortal() {
+
+    const loadingText =
+        document.getElementById("loadingText");
+
+    try {
+
+        // ----------------------------------------------------
+        // CHECK SUPABASE CONFIGURATION
+        // ----------------------------------------------------
+
+        if (
+            !SUPABASE_URL ||
+            !SUPABASE_PUBLISHABLE_KEY ||
+            SUPABASE_PUBLISHABLE_KEY.includes("PASTE_YOUR")
+        ) {
+
+            showError(
+                "Configuration required",
+                "The Supabase configuration has not been added to admin.html.",
+                "Use the same Project URL and publishable key as login.html."
+            );
+
+            return;
+
+        }
+
+
+        // ----------------------------------------------------
+        // LOAD SUPABASE
+        // ----------------------------------------------------
+
+        loadingText.textContent =
+            "Connecting to Supabase and verifying your session...";
+
+        const supabaseLibrary =
+            await loadSupabaseLibrary();
+
+
+        // ----------------------------------------------------
+        // CREATE SUPABASE CLIENT
+        // ----------------------------------------------------
+
+        supabaseClient =
+            supabaseLibrary.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY,
+                {
+                    auth: {
+                        persistSession: true,
+                        autoRefreshToken: true,
+                        detectSessionInUrl: true
+                    }
+                }
+            );
+
+
+        // ----------------------------------------------------
+        // CHECK SESSION
+        // ----------------------------------------------------
+
+        const {
+            data: { session },
+            error: sessionError
+        } = await supabaseClient.auth.getSession();
+
+
+        if (sessionError) {
+
+            throw sessionError;
+
+        }
+
+
+        // ----------------------------------------------------
+        // NO SESSION FOUND
+        // ----------------------------------------------------
+
+        if (!session) {
+
+            showError(
+                "Sign-in required",
+                "No active Supabase session was found. Please sign in first.",
+                "Redirecting you to the sign-in page."
+            );
+
+            window.setTimeout(() => {
+
+                window.location.replace(
+                    LOGIN_PAGE
+                );
+
+            }, 1800);
+
+            return;
+
+        }
+
+
+        // ----------------------------------------------------
+        // VERIFY AUTHENTICATED USER
+        // ----------------------------------------------------
+
+        loadingText.textContent =
+            "Verifying your account and administrator permissions...";
+
+        const {
+            data: { user },
+            error: userError
+        } = await supabaseClient.auth.getUser();
+
+
+        if (userError || !user) {
+
+            showError(
+                "Sign-in required",
+                "Your session could not be verified. Please sign in again.",
+                userError?.message ||
+                    "No authenticated user was returned."
+            );
+
+            return;
+
+        }
+
+
+        // ----------------------------------------------------
+        // VERIFY ADMINISTRATOR PROFILE
+        // ----------------------------------------------------
+
+        const {
+            data: profile,
+            error: profileError
+        } = await supabaseClient
+            .from("profiles")
+            .select("id, email, full_name, role")
+            .eq("id", user.id)
+            .single();
+
+
+        // ----------------------------------------------------
+        // DENY ACCESS IF NOT AN ADMINISTRATOR
+        // ----------------------------------------------------
+
+        if (
+            profileError ||
+            !profile ||
+            profile.role !== "admin"
+        ) {
+
+            showError(
+                "Access Denied",
+                "You do not have administrator privileges.",
+                profileError?.message ||
+                    "Please contact The Entity Solutions administrator."
+            );
+
+            return;
+
+        }
+
+
+        // ----------------------------------------------------
+        // ADMINISTRATOR VERIFIED
+        // ----------------------------------------------------
+
+        console.info(
+            "Administrator verified:",
+            profile.email || user.email || user.id
+        );
+
+
+        // ----------------------------------------------------
+        // REGISTER AUTH STATE LISTENER
+        // ----------------------------------------------------
+
+        registerAuthListener(
+            supabaseClient
+        );
+
+
+        // ----------------------------------------------------
+        // DISPLAY ADMIN PORTAL
+        // ----------------------------------------------------
+
+        showPortal();
+        
+
+        // ====================================================
+        // SIGN OUT
+        // ====================================================
+
+        const signOutButton =
+            document.getElementById("signOutButton");
+
+
+        signOutButton.addEventListener(
+            "click",
+            async function () {
+
+                this.disabled = true;
+
+                this.textContent =
+                    "Signing out...";
+
+                try {
+
+                    const {
+                        error: signOutError
+                    } = await supabaseClient.auth.signOut();
+
+
+                    if (signOutError) {
+
+                        throw signOutError;
+
+                    }
+
+
+                    // Redirect after successful sign-out
+
+                    window.location.replace(
+                        LOGIN_PAGE
+                    );
+
+
+                } catch (error) {
+
+                    this.disabled = false;
+
+                    this.textContent =
+                        "Sign Out";
+
+
+                    showError(
+                        "Sign-out failed",
+                        "Your session could not be ended successfully.",
+                        error?.message ||
+                            "Please try again."
+                    );
+
+                }
+
+            }
+        );
+
+
+    } catch (error) {
+
+        // ----------------------------------------------------
+        // GENERAL ERROR HANDLING
+        // ----------------------------------------------------
+
+        console.error(
+            "TES Admin Portal error:",
+            error
+        );
+
+
+        showError(
+            "Unable to open the Admin Portal",
+            "The portal could not complete its authentication check.",
+            error?.message ||
+                "Check the Supabase configuration and try again."
+        );
+
+    }
+
+}
+
+
+// ============================================================
+// START ADMIN PORTAL
+// ============================================================
+
+initialisePortal();
+// =====================================
+// TES USER MANAGEMENT
+// =====================================
+
+let allUsers = [];
+
+async function loadUsers() {
+
+    const tbody = document.getElementById("userTableBody");
+    const message = document.getElementById("userMessage");
+
+    message.textContent = "Loading users...";
+
+    try {
+
+        const { data: sessionData, error: sessionError } =
+    await supabaseClient.auth.getSession();
+
+if (sessionError) throw sessionError;
+
+const accessToken = sessionData.session?.access_token;
+
+if (!accessToken) {
+    throw new Error("Admin session expired. Please sign in again.");
+}
+
+const { data, error } = await supabaseClient
+    .from("profiles")
+    .select("id, email, full_name, role")
+    .order("created_at", { ascending: false });
+
+if (error) throw error;
+
+allUsers = data || [];
+
+        displayUsers(allUsers);
+
+        message.textContent =
+            allUsers.length + " user(s) found.";
+
+    } catch (error) {
+
+        console.error("User loading error:", error);
+
+        message.textContent =
+            "Unable to load users: " + error.message;
+
+    }
+}
+
+
+function displayUsers(users) {
+
+    const tbody = document.getElementById("userTableBody");
+
+    tbody.replaceChildren();
+
+    if (!users.length) {
+
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 3;
+        cell.textContent = "No users found.";
+
+        row.appendChild(cell);
+        tbody.appendChild(row);
+
+        return;
+    }
+
+    users.forEach(user => {
+
+        const row = document.createElement("tr");
+
+        [user.full_name, user.email, user.role].forEach(value => {
+
+            const cell = document.createElement("td");
+
+            cell.style.padding = "14px";
+            cell.textContent = value || "-";
+
+            row.appendChild(cell);
+
+        });
+
+        tbody.appendChild(row);
+
+    });
+}
+
+
+// Search users
+document.getElementById("userSearch")
+    .addEventListener("input", function () {
+
+        const search = this.value.toLowerCase();
+
+        const filtered = allUsers.filter(user =>
+            (user.full_name || "").toLowerCase().includes(search) ||
+            (user.email || "").toLowerCase().includes(search) ||
+            (user.role || "").toLowerCase().includes(search)
+        );
+
+        displayUsers(filtered);
+
+    });
+
+
+// Refresh users
+document.getElementById("refreshUsers")
+    .addEventListener("click", loadUsers);
+    // CREATE USER - SEND INVITATION
+document.getElementById("createUserBtn")
+  .addEventListener("click", async function () {
+
+    const name = document.getElementById("newUserName").value.trim();
+    const email = document.getElementById("newUserEmail").value.trim();
+    const role = document.getElementById("newUserRole").value;
+    const message = document.getElementById("createUserMessage");
+    const button = this;
+
+    if (!name || !email || !role) {
+      message.textContent = "Please complete all fields.";
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Sending invitation...";
+    message.textContent = "";
+
+    try {
+     const { data: sessionData, error: sessionError } =
+    await supabaseClient.auth.getSession();
+
+if (sessionError) throw sessionError;
+
+const accessToken = sessionData.session?.access_token;
+
+if (!accessToken) {
+    throw new Error("Admin session expired. Please sign in again.");
+}
+
+const { data, error } =
+    await supabaseClient.functions.invoke("create-user", {
+        body: {
+            full_name: name,
+            email: email,
+            role: role
+        },
+        headers: {
+            Authorization: "Bearer " + accessToken
+            }
+        
+    });
+         
+
+      if (error) throw error;
+      if (data && data.error) throw new Error(data.error);
+
+      message.textContent = "Invitation sent successfully!";
+
+      document.getElementById("newUserName").value = "";
+      document.getElementById("newUserEmail").value = "";
+      document.getElementById("newUserRole").value = "";
+
+      await loadUsers();
+
+    } catch (error) {
+      console.error("Create user error:", error);
+      message.textContent = "Error: " + error.message;
+
+    } finally {
+      button.disabled = false;
+      button.textContent = "Create User & Send Invitation";
+    }
+});
+</script>
+
+
+</body>
+</html>
