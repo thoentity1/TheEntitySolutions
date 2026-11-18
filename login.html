@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>Sign In | TES Digital Hub</title>
+
+<style>
+:root {
+    --bg:#080b12;
+    --panel:#101827;
+    --teal:#27e6d2;
+    --white:#f5f8ff;
+    --muted:#a7b2c5;
+    --border:rgba(39,230,210,.25);
+}
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--white);
+    background:
+      radial-gradient(circle at 50% 45%,
+      rgba(0,150,160,.13),transparent 55%),
+      var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:35px 16px;
+}
+
+.container {
+    width:100%;
+    max-width:620px;
+    text-align:center;
+}
+
+.logo {
+    font-size:64px;
+    font-weight:bold;
+    letter-spacing:8px;
+    color:var(--teal);
+}
+
+.brand {
+    font-size:13px;
+    letter-spacing:4px;
+    color:#d2dbe5;
+    margin-top:8px;
+}
+
+h1 {
+    font-size:36px;
+    margin:42px 0 12px;
+}
+
+.subtitle {
+    color:#c4cfdb;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.card {
+    text-align:left;
+    padding:42px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:rgba(16,24,39,.45);
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+}
+
+.card h2 {
+    font-size:28px;
+    margin:0 0 12px;
+}
+
+.description {
+    color:#d0d9e3;
+    margin-bottom:35px;
+    font-size:16px;
+}
+
+.field {
+    margin-bottom:24px;
+}
+
+label {
+    display:block;
+    font-weight:bold;
+    font-size:15px;
+    margin-bottom:12px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width:100%;
+    height:64px;
+    padding:0 18px;
+    background:rgba(255,255,255,.035);
+    border:1px solid #394657;
+    border-radius:12px;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus {
+    border-color:var(--teal);
+    box-shadow:0 0 0 2px rgba(39,230,210,.12);
+}
+
+.password-wrap {
+    position:relative;
+}
+
+.password-wrap input {
+    padding-right:75px;
+}
+
+.show {
+    position:absolute;
+    right:17px;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:none;
+    color:var(--teal);
+    font-size:14px;
+    cursor:pointer;
+}
+
+.options {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:25px 0 35px;
+    gap:10px;
+}
+
+.remember {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--muted);
+    font-weight:normal;
+    font-size:15px;
+    margin:0;
+}
+
+.remember input {
+    width:18px;
+    height:18px;
+    accent-color:var(--teal);
+}
+
+.forgot {
+    border:none;
+    background:none;
+    color:var(--teal);
+    font-size:14px;
+    cursor:pointer;
+}
+
+.submit {
+    width:100%;
+    height:60px;
+    border:0;
+    border-radius:12px;
+    background:#32c7b2;
+    color:#07151a;
+    font-weight:bold;
+    font-size:16px;
+    letter-spacing:3px;
+    cursor:pointer;
+}
+
+.submit:hover {
+    background:#4de3ce;
+}
+
+.submit:disabled {
+    opacity:.6;
+    cursor:wait;
+}
+
+.message {
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.6;
+    overflow-wrap:anywhere;
+}
+
+.message.show {
+    display:block;
+}
+
+.message.error {
+    background:rgba(255,190,70,.09);
+    border:1px solid rgba(255,190,70,.3);
+    color:#ffd18a;
+}
+
+.message.success {
+    background:rgba(39,230,160,.09);
+    border:1px solid rgba(39,230,160,.3);
+    color:#70efb8;
+}
+
+.footer {
+    margin-top:40px;
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.footer strong {
+    color:var(--teal);
+}
+
+@media(max-width:600px) {
+    .logo {
+        font-size:48px;
+    }
+
+    h1 {
+        font-size:29px;
+        margin-top:32px;
+    }
+
+    .subtitle {
+        font-size:15px;
+    }
+
+    .card {
+        padding:25px 20px;
+    }
+
+    .card h2 {
+        font-size:24px;
+    }
+
+    .options {
+        flex-wrap:wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">TES</div>
+
+    <div class="brand">
+        THE ENTITY SOLUTIONS
+    </div>
+
+    <h1>Welcome Back</h1>
+
+    <p class="subtitle">
+        Sign in to your digital workspace.
+    </p>
+
+    <div class="card">
+
+        <h2>Sign In</h2>
+
+        <p class="description">
+            Enter your account details to continue.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="field">
+
+                <label for="username">
+                    Username or Email
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username or email"
+                    autocomplete="username"
+                    autocapitalize="none"
+                    required>
+
+            </div>
+
+            <div class="field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrap">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required>
+
+                    <button
+                        type="button"
+                        class="show"
+                        id="togglePassword">
+                        Show
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="options">
+
+                <label class="remember">
+                    <input type="checkbox" checked>
+                    Remember me
+                </label>
+
+                <button
+                    type="button"
+                    class="forgot"
+                    id="forgotPassword">
+                    Forgot password?
+                </button>
+
+            </div>
+
+            <button
+                type="submit"
+                class="submit"
+                id="signInButton">
+                SIGN IN
+            </button>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite">
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer">
+        <strong>TES DIGITAL HUB</strong><br>
+        Secure authentication enabled.
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+"use strict";
+
+const SUPABASE_URL =
+"https://jgzvycawkkfdvdimdjat.supabase.co";
+
+const SUPABASE_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnenZ5Y2F3a2tmZHZkaW1kamF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyNzA0NjQsImV4cCI6MjEwODg0NjQ2NH0.M4Se5ri9hpHnYaMx8d6pbeZwIFCCvWMBOjS5Bx8c0kw";
+
+const RECOVERY_URL =
+"https://thoentity1.github.io/tes-digital-hub/set-password.html";
+
+const client = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY,
+    {
+        auth: {
+            persistSession:true,
+            autoRefreshToken:true,
+            detectSessionInUrl:true
+        }
+    }
+);
+
+const form = document.getElementById("loginForm");
+const emailInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const button = document.getElementById("signInButton");
+const message = document.getElementById("message");
+
+function showMessage(text,type="error") {
+    message.textContent = text;
+    message.className = "message show " + type;
+}
+
+function clearMessage() {
+    message.textContent = "";
+    message.className = "message";
+}
+
+// SHOW PASSWORD
+
+document.getElementById("togglePassword")
+.addEventListener("click",function() {
+
+    const visible = passwordInput.type === "password";
+
+    passwordInput.type = visible ? "text" : "password";
+
+    this.textContent = visible ? "Hide" : "Show";
+
+});
+
+// SIGN IN
+
+form.addEventListener("submit",async function(event) {
+
+    event.preventDefault();
+
+    clearMessage();
+
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+
+    // Supabase password authentication requires an email address.
+    if (!email.includes("@")) {
+        showMessage(
+            "Please enter the email address registered to your account."
+        );
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "SIGNING IN...";
+
+    try {
+
+        const {data,error} = await client.auth.signInWithPassword({
+            email:email,
+            password:password
+        });
+
+        if (error) throw error;
+
+        if (!data.session) {
+            throw new Error("Authentication session was not created.");
+        }
+
+        showMessage(
+            "Login successful. Opening your dashboard...",
+            "success"
+        );
+
+        window.location.replace("dashboard.html");
+
+    } catch(error) {
+
+        console.error("TES Login:",error);
+
+        let text = error.message;
+
+        if (text.toLowerCase().includes("invalid login credentials")) {
+            text = "Incorrect email or password. Please try again or use Forgot password.";
+        }
+
+        if (text.toLowerCase().includes("email not confirmed")) {
+            text = "Your email address has not been confirmed.";
+        }
+
+        showMessage(text);
+
+        button.disabled = false;
+        button.textContent = "SIGN IN";
+    }
+
+});
+
+// PASSWORD RECOVERY
+
+document.getElementById("forgotPassword")
+.addEventListener("click",async function() {
+
+    clearMessage();
+
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (!email || !email.includes("@")) {
+        showMessage(
+            "Enter your registered email address first."
+        );
+        emailInput.focus();
+        return;
+    }
+
+    const recoveryButton = this;
+
+    recoveryButton.disabled = true;
+    recoveryButton.textContent = "SENDING...";
+
+    try {
+
+        const {error} = await client.auth.resetPasswordForEmail(
+            email,
+            {
+                redirectTo:RECOVERY_URL
+            }
+        );
+
+        if (error) throw error;
+
+        showMessage(
+            "Recovery email requested. Check your inbox and spam folder.",
+            "success"
+        );
+
+    } catch(error) {
+
+        console.error("TES Recovery:",error);
+
+        showMessage(
+            "Password recovery failed: " + error.message
+        );
+
+    } finally {
+
+        recoveryButton.disabled = false;
+        recoveryButton.textContent = "Forgot password?";
+    }
+
+});
+</script>
+
+</body>
+</html>
